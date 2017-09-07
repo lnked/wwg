@@ -1,19 +1,18 @@
 .layout-footer {
-    clear: both;
+    height: 7%;
     position: relative;
-    height: $footer-height;
-    margin-top: -$footer-height;
+    text-align: center;
+    transform: translate3d(0,-100%,0);
     
     &__wrapper {
         @extend %layout;
     }
 
-    &__copiright {}
-
-    &__navigation {
-        &__list {}
-        &__item {
-            &__link {}
-        }
+    &__copiright {
+        color: #272727;
+        font-family: Roboto;
+        font-weight: 500;
+        font-size: 2.4rem;
+        font-size: 1.6rem;
     }
 }

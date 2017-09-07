@@ -1,15 +1,34 @@
 .layout-header {
     clear: both;
+    height: 16%;
     position: relative;
-    height: $header-height;
+    z-index: 2000;
+    // height: $header-height;
 
     &__wrapper {
         @extend %layout;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: 480px) {
+            display: block;
+        }
     }
 
     &__logo {
-        position: absolute;
-        left: 0;
-        top: 0;
+        width: auto;
+        height: 62.5%;
+        // min-width: 173px;
+        margin-right: 170px;
+
+        @media (max-width: 480px) {
+            min-width: 0;
+            margin: 0;
+        }
+    }
+
+    &__lang {
+        margin-left: 10px;
     }
 }

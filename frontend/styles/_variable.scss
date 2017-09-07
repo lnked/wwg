@@ -14,16 +14,6 @@ $min-desktop:                   1024px;
 $min-medium:                    1375px;
 $min-large:                     1680px;
 
-// $screen = {
-//   ultra-mega-hd: 2500px,
-//   ultra-hd: 1600px,
-//   laptop-l: 1240px,
-//   laptop: 920px,
-//   tablet: 768px,
-//   mobile-l: 568px,
-//   mobile-s: 320px
-// }
-
 // Animation
 $a-func:                        ease;
 $a-time:                        .5s;
@@ -32,7 +22,8 @@ $a-long-time:                   .9s;
 
 // Fonts
 $font-base:                     10px;
-$font-family:                   -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+$font-family:                   Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+$font-raleway:                  'Raleway', sans-serif;
 $font-arial:                    Arial, Helvetica, sans-serif;
 $font-forms:                    Arial, Helvetica, sans-serif;
 
@@ -53,34 +44,12 @@ $c-switcher-checked:            #f00;
 $c-switcher-checked-color:      #f00;
 $c-webflow-blue:                #4353ff;
 
-// CMS SET http://www.htmlcsscolor.com/hex/4353ff
-// #4353FF
-// #43FF53
-// #5343FF
-// #53FF43
-// #FF4353
-// #FF5343
-// 
-// Triadic Colors
-
-//  #FF4353  #53FF43
-// Analogous Colors
-
-//  #9143FF  #43B1FF
-// Split complements Colors
-
-//  #FF9143  #B1FF43
-// Complementary Color
-
-//  #FFEF43
-
-
 // All
-$c-select-color:                #f00;
-$c-select-background:           #000;
+$c-select-color:                #fff;
+$c-select-background:           #ff8700;
 
 $c-text:                        #222223;
-$c-body-background:             #fff !default;
+$c-body-background:             #000 !default;
 
 $c-placeholder-color:           #000;
 $c-placeholder-opacity:         .5;
@@ -142,10 +111,10 @@ $c-warning:                     $c-persimmon;
 $layout-width:                  1260px;
 $layout-margin:                 10px;
 
-$header-height:                 159px;
+$header-height:                 160px;
 
 $footer-margin:                 20px;
-$footer-height:                 100px;
+$footer-height:                 65px;
 
 $sidebar-width:                 200px;
 $sidebar-margin:                20px;

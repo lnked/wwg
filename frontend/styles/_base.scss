@@ -34,7 +34,16 @@ body {
     min-width: 320px;
     line-height: 1.42857143;
     font-kerning: none;
+    overflow: hidden;
     background-color: $c-body-background;
+    background-image: url(/images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: auto 73.7%;
+
+    @media (max-width: 480px) {
+        overflow: auto;
+    }
 }
 
 body, input, textarea, select, button {
@@ -45,4 +54,24 @@ body, input, textarea, select, button {
     -moz-osx-font-smoothing: grayscale;
     font-smoothing: antialiased;
     text-align: left;
+}
+
+$min_width: 320;
+$max_width: 1560;
+
+$min_font: 6;
+$max_font: 10; 
+
+:root { font-size: #{$min_font}px; }
+
+@media (min-width: #{$min_width}px) and (max-width: #{$max_width}px) {
+    :root { 
+        font-size: calc(#{$min_font}px + (#{$max_font} - #{$min_font}) * ( (100vw - #{$min_width}px) / ( #{$max_width} - #{$min_width})));
+    }
+}
+
+@media (min-width: #{$max_width}px) {
+    :root {
+        font-size: #{$max_font}px;
+    }
 }

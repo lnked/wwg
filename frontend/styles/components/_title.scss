@@ -1,0 +1,15 @@
+.title {
+    color: #fff;
+    font-size: 6.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    letter-spacing: 0.02ex;
+    font-family: $font-raleway;
+
+    @media (max-width: 480px) {
+        font-size: 4.6rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,134 @@
+.test {
+    width: 10%;
+    height: 10%;
+    border: 2px solid lime;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 420px;
+    z-index: 10000;
+
+    &:before {
+        width: 100%;
+        content: "";
+        border: 1px solid blue;
+        display: block;
+    }
+}
+
+.parallax-picture {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+    }
+
+    &__game-map {
+        left: 50%;
+        top: 50%;
+        border: 1px solid red;
+        width: 54.8717948718%;
+        background-image: url(/images/game-map.png);
+        transform: translate3d(-50%,-50%,0);
+
+        &:before {
+            padding-bottom: 78.8551401869%;
+            // padding-bottom: 67.5%;
+        }
+    }
+
+    &__playing-card {
+        width: 25.2564102564%;
+        background-image: url(/images/playing-card-with-shadow.png);
+        // 394
+        &:before {
+            padding-bottom: 109.3908629442%;
+        }
+    }
+
+    &__pawn {
+        width: 5.2564102564%;
+        background-image: url(/images/pawn.png);
+        // 82
+        &:before {
+            padding-bottom: 217.0731707317%;
+        }
+    }
+    
+    &__blue-pawn {
+        width: 3.7820512821%;
+        background-image: url(/images/blue-pawn.png);
+        // 59
+        &:before {
+            padding-bottom: 162.7118644068%;
+        }
+    }
+
+    &__dice {
+        width: 21.4743589744%;
+        background-image: url(/images/dice.png);
+        // 335
+        &:before {
+            padding-bottom: 95.82089552%;
+        }
+    }
+        
+    &__dice-far-away {
+        width: 2.6282051282%;
+        background-image: url(/images/dice-far-away.png);
+        // 41
+        &:before {
+            padding-bottom: 104.8780487805%;
+        }
+    }
+
+    &__dice-near {
+        width: 4.4230769231%;
+        background-image: url(/images/dice-near.png);
+        // 69
+        &:before {
+            padding-bottom: 113.0434782609%;
+        }
+    }
+
+    &__orange-item {
+        width: 14.1025641026%;
+        background-image: url(/images/orange-item.png);
+        // 220
+        &:before {
+            padding-bottom: 66.8181818182%;
+        }
+    }
+
+    &__purple-item {
+        width: 9.358974359%;
+        background-image: url(/images/purple-item.png);
+        // 146
+        &:before {
+            padding-bottom: 71.9178082192%;
+        }
+    }
+
+    &__yellow-chip {
+        width: 6.0897435897%;
+        background-image: url(/images/yellow-chip.png);
+        // 95
+        &:before {
+            padding-bottom: 61.0526315789%;
+        }
+    }
+    
+    &__purple-chip {
+        width: 9.4230769231%;
+        background-image: url(/images/purple-chip.png);
+        // 147
+        &:before {
+            padding-bottom: 94.5578231293%;
+        }
+    }
+}

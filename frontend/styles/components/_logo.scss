@@ -1,0 +1,16 @@
+.logo {
+    width: 173px;
+    display: block;
+    background: url(/images/logo.png) no-repeat 50% 50%;
+    background-size: 100% 100%;
+
+    &:before {
+        content: "";
+        display: block;
+        padding-bottom: 56.6473988439%;
+    }
+
+    @media (max-width: 480px) {
+        width: 100px;
+    }
+}

@@ -1,0 +1,64 @@
+@@include('./components/_meta.html', {
+    "title": "Index",
+    "bodyclass": ""
+})
+
+@@include('./components/_svgstore.html')
+
+<div class="layout-wrapper">
+        
+    <div class="layout-wrapper__lamp"></div>
+    <div class="layout-wrapper__lamp-lighter"></div>
+
+    @@include('./components/_header.html', {
+        "current": "contact-us"
+    })
+
+    <div class="layout-wrapper__pusher">
+        <div class="layout-wrapper__container clearfix">
+
+            <div class="content clearfix">
+                <div class="title">СВЯЗАТЬСЯ</div>
+                
+                <div class="contacts">
+                    ООО "СМТК"<br>
+                    Адрес: 350051, г. Краснодар, ул. Лузана, 36.<br>
+                    Тел. <a href="tel:8-952-851-58-53" class="contacts__phone">+7 (952) 851-58-53</a><br>
+                    E-mail: <a href="mailto:ak@wwgamescorp.ru" class="contacts__email">ak@wwgamescorp.ru</a>
+                </div>
+
+                <form action="" method="POST" class="feedback">
+                    <div class="feedback__group">
+                        <label class="feedback__label">
+                            <input name="name" class="feedback__input" value="Иванов Иван Иванович">
+                            <span class="feedback__placeholder">Ф.И.О.</span>
+                        </label>
+
+                        <label class="feedback__label">
+                            <input name="phone" class="feedback__input mask-phone">
+                            <span class="feedback__placeholder">Тел. <span class="feedback__placeholder__star">*</span></span>
+                        </label>
+
+                        <label class="feedback__label">
+                                <input name="email" class="feedback__input">
+                            <span class="feedback__placeholder">E-mail</span>
+                        </label>
+                        
+                        <label class="feedback__label">
+                            <textarea name="text" class="feedback__textarea"></textarea>
+                            <span class="feedback__placeholder feedback__placeholder--flex-start">Текст</span>
+                        </label>
+                    </div>
+                    
+                    <button class="feedback__button" type="submit">ОТПРАВИТЬ</button>
+                </form>
+
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+@@include('./components/_footer.html')
+@@include('./components/_scripts.html')

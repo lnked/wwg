@@ -1,38 +1,54 @@
 .layout-wrapper {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     overflow: hidden;
     position: relative;
 
+    @media (max-width: 480px) {
+        height: auto;
+        min-height: 100%;
+    }
+
+    &__lamp {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 58.7%;
+        z-index: 100;
+        background: url(/images/lamp.png) no-repeat 0 0;
+        background-size: cover;
+        border: 1px solid lime;
+
+        &:before {
+            content: "";
+            display: block;
+            // padding-bottom: 61.7894736842%;
+            padding-left: 161.8398637138%;
+        }
+    }
+    
+    &__lamp-lighter {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 89.9%;
+        z-index: 1;
+        background: url(/images/lamp-lighter.png) no-repeat;
+        background-size: cover;
+
+        &:before {
+            content: "";
+            display: block;
+            // padding-bottom: 99.4469026549%;
+            padding-left: 99.4469026549%;
+        }
+    }
+
     &__pusher {
+        height: 100%;
+        border: 1px solid lime;
+        position: relative;
         padding-bottom: $footer-height + $footer-margin;
     }
-
-    &__container {
-        @extend %layout;
-    }
-
-    @media screen and (min-width: $min-phone) and (max-width: $max-desktop) {
-        background-color: red;
-    }
 }
-
-// .wrapper {
-//     background-image: url("https://c7.staticflickr…");  
-// }
-
-// @supports (background-blend-mode: hue) {
-//     .wrapper {
-//         background-image: linear-gradient(lightblue 0%, pink 100%),
-//         linear-gradient(to right, pink 30%, white 100%), url("https://c7.staticflickr.com/2/1510/…");  
-//         background-blend-mode: hue;
-//     }
-// }
-
-/*
-Lenovo ThinkPad X230    12.5″   1366×768
-MacBook Pro             13.3″   1280×800
-MacBook Pro             15.4″   1440×900
-iMac                    21.5″   1920×1080
-iMac                    27″     2560×1440
-*/

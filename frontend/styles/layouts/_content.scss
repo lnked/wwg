@@ -1,12 +1,26 @@
 .content {
-    width: 100%;
-    float: left;
+    @extend %layout;
+    position: relative;
+    z-index: 1000;
     
-    &__inner {
-        padding: 20px;
-    }
-}
+    p {
+        color: #ddd6bf;
+        font-family: $font-raleway;
+        line-height: 2rem;
 
-.sidebar + .content {
-    padding-left: $sidebar-width + $sidebar-margin;
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        strong {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+    }
+
+    &__inner {
+        width: 100%;
+        max-width: 540px;
+    }
 }
