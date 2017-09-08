@@ -82,7 +82,7 @@
         transition: background-color $a-time ease, color $a-time ease;
 
         &:hover {
-            background-color: lighten(#ff8700, 10%);
+            background-color: #ffa800;
         }
     }
 }

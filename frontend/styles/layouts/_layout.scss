@@ -11,31 +11,33 @@
 
     &__lamp {
         position: absolute;
-        right: 0;
+        right: 100px;
         top: 0;
+        width: 40%;
         height: 58.7%;
-        z-index: 100;
+        z-index: 1000;
         background: url(/images/lamp.png) no-repeat 0 0;
-        background-size: cover;
+        background-size: auto 100%;
         border: 1px solid lime;
 
         &:before {
             content: "";
             display: block;
-            // padding-bottom: 61.7894736842%;
-            padding-left: 161.8398637138%;
+            padding-bottom: 61.7894736842%;
+            // padding-left: 161.8398637138%;
         }
     }
     
     &__lamp-lighter {
         content: "";
         position: absolute;
-        right: 0;
+        right: 100px;
         top: 0;
+        width: 40%;
         height: 89.9%;
-        z-index: 1;
+        z-index: 999;
         background: url(/images/lamp-lighter.png) no-repeat;
-        background-size: cover;
+        background-size: auto 100%;
 
         &:before {
             content: "";
@@ -47,8 +49,10 @@
 
     &__pusher {
         height: 100%;
-        border: 1px solid lime;
+        overflow: hidden;
         position: relative;
-        padding-bottom: $footer-height + $footer-margin;
+        padding-top: 10%;
+        padding-bottom: 7%;
+        border: 2px solid blue;
     }
 }

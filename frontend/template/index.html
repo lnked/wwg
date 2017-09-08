@@ -10,19 +10,15 @@
     <div class="layout-wrapper__lamp"></div>
     <div class="layout-wrapper__lamp-lighter"></div>
 
+    @@include('./components/_header.html', {
+        "current": "index"
+    })
+
     <div class="layout-wrapper__pusher">
-        @@include('./components/_header.html', {
-            "current": "index"
-        })
-        
         <div class="content clearfix">
             <div class="title">ЛУЧШИЕ ИГРЫ<br>СО ВСЕГО МИРА!</div>
         </div>
 
-        <div class="test"></div>
-        <div class="parallax-picture parallax-picture__game-map"></div>
-
-        <!--
         <div class="parallax-picture parallax-picture__playing-card"></div>
         <div class="parallax-picture parallax-picture__pawn"></div>
         <div class="parallax-picture parallax-picture__blue-pawn"></div>
@@ -33,7 +29,8 @@
         <div class="parallax-picture parallax-picture__purple-item"></div>
         <div class="parallax-picture parallax-picture__yellow-chip"></div>
         <div class="parallax-picture parallax-picture__purple-chip"></div>
-        -->
+
+        <div class="parallax-picture parallax-picture__game-map"></div>
     </div>
 
 </div>

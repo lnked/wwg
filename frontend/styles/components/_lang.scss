@@ -17,10 +17,18 @@
             line-height: 1;
             font-family: $font-raleway;
             text-decoration: underline;
+            transition: color $a-time $a-func;
+            
+            &:hover {
+                color: #fff;
+            }
             
             &--selected {
-                color: #565656;
                 text-decoration: none;
+
+                &, &:hover {
+                    color: #565656;
+                }
             }
         }
     }

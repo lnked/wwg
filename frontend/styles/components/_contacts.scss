@@ -10,11 +10,21 @@
         font-size: 2.4rem;
         font-weight: 700;
         text-decoration: none;
+        transition: color $a-time $a-func;
+
+        &:hover {
+            color: #ff8700;
+        }
     }
 
     &__email {
-        font-size: 1.6rem;
         color: #ff8700;
+        font-size: 1.6rem;
         text-decoration: none;
+        transition: color $a-time $a-func;
+
+        &:hover {
+            color: #fff;
+        }
     }
 }
