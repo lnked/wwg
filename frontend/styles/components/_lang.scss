@@ -18,12 +18,13 @@
             font-family: $font-raleway;
             text-decoration: underline;
             transition: color $a-time $a-func;
-            
+
             &:hover {
                 color: #fff;
             }
             
             &--selected {
+                cursor: default;
                 text-decoration: none;
 
                 &, &:hover {

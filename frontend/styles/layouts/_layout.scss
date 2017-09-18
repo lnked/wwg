@@ -11,48 +11,35 @@
 
     &__lamp {
         position: absolute;
-        right: 100px;
-        top: 0;
-        width: 40%;
-        height: 58.7%;
-        z-index: 1000;
-        background: url(/images/lamp.png) no-repeat 0 0;
-        background-size: auto 100%;
+        right: 8.241555%;
+        top: -1.5vh;
+        width: 950px;
+        height: 58.7vh;
+        z-index: 4900;
+        pointer-events: none;
         border: 1px solid lime;
-
-        &:before {
-            content: "";
-            display: block;
-            padding-bottom: 61.7894736842%;
-            // padding-left: 161.8398637138%;
-        }
+        background: url(/images/lamp.png) no-repeat 100% 0;
+        background-size: auto 100%;
     }
     
     &__lamp-lighter {
         content: "";
         position: absolute;
-        right: 100px;
+        right: 5.3333333333%;
         top: 0;
-        width: 40%;
-        height: 89.9%;
-        z-index: 999;
-        background: url(/images/lamp-lighter.png) no-repeat;
+        width: 904px;
+        height: 89.9vh;
+        z-index: 4800;
+        border: 1px solid lime;
+        pointer-events: none;
+        background: url(/images/lamp-lighter.png) no-repeat 100% 100%;
         background-size: auto 100%;
-
-        &:before {
-            content: "";
-            display: block;
-            // padding-bottom: 99.4469026549%;
-            padding-left: 99.4469026549%;
-        }
     }
 
     &__pusher {
         height: 100%;
-        overflow: hidden;
         position: relative;
-        padding-top: 10%;
-        padding-bottom: 7%;
-        border: 2px solid blue;
+        padding-top: 14vh;
+        border: 1px solid lime;
     }
 }

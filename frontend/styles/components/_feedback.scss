@@ -1,6 +1,6 @@
 .feedback {
     width: 100%;
-    max-width: 415px;
+    max-width: 27%;
 
     &__group {
         margin-bottom: 20px;
@@ -24,13 +24,19 @@
         position: absolute;
         left: 0;
         top: 0;
-        padding: 13px;
+        // padding: 13px;
+        padding: 13px 0;
         bottom: 0;
         opacity: 0;
         display: flex;
         align-items: center;
         pointer-events: none;
+        transition: opacity .3s ease-in-out;
         
+        &--visible {
+            opacity: 1;
+        }
+
         &--flex-start {
             align-items: flex-start;
         }
@@ -46,7 +52,8 @@
     &__textarea {
         width: 100%;
         color: #fff;
-        padding: 13px;
+        // padding: 13px;
+        padding: 13px 0;
         font-family: Roboto, sans-serif;
         font-size: 1.6rem;
         font-weight: 300;
@@ -55,11 +62,6 @@
         border: 0;
         outline: none;
         border-bottom: 2px solid rgba(#fff, 0.3);
-    }
-
-    &__input:empty + &__placeholder,
-    &__textarea:empty + &__placeholder {
-        opacity: 1;
     }
 
     &__textarea {

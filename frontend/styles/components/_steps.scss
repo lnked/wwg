@@ -1,0 +1,89 @@
+.steps {
+    position: absolute;
+    left: 0;
+    top: 0;
+    float: left;
+    z-index: 10020;
+
+    width: 296px;
+    max-width: 20%;
+
+    margin-top: 45px;
+    margin-top: 125px;
+    margin-left: 4%;
+    margin-left: 10%;
+
+    &__item {
+        clear: both;
+        position: relative;
+
+        &:before {
+            width: 100%;
+            content: "";
+            display: block;
+        }
+
+        &--first,
+        &--second {
+            &:after {
+                content: "";
+                width: 22%;
+                height: 53px;
+                position: absolute;
+                top: 100%;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                background-size: 100% auto;
+            }
+        }
+
+        &--first {
+            max-width: 32.0945945946%;
+            margin-bottom: 50px;
+
+            &:before {
+                padding-bottom: 88.4210526316%;
+            }
+
+            &:after {
+                margin-top: -3px;
+                left: 29.7297297297%;
+                left: 66.72973%;
+                background-image: url(/images/icon-arrow-1.png);
+            }
+        }
+
+        &--second {
+            max-width: 35.1351351351%;
+            margin-left: 27.027027027%;
+            margin-bottom: 26px;
+
+            &:before {
+                padding-bottom: 109.6153846154%;
+            }
+            
+            &:after {
+                margin-top: 10px;
+                left: 53.3783783784%;
+                background-image: url(/images/icon-arrow-2.png);
+            }
+        }
+
+        &--third {
+            max-width: 34.1216216216%;
+            margin-left: 65.5405405405%;
+
+            &:before {
+                padding-bottom: 96.0396039604%;
+            }
+        }
+
+        &__icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}

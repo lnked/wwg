@@ -1,151 +1,242 @@
 .parallax-picture {
-    width: 100%;
+    user-select: none;
     position: absolute;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: auto 100%;
-    border: 1px solid lime;
+    pointer-events: none;
+    outline: 1px solid lime;
 
-    &:before {
-        width: 100%;
-        content: "";
-        display: block;
+    &__src {
+        width: auto;
+        height: 100%;
+        max-width: 100%;
+        display: inline-block;
     }
 
-    &__game-map {
-        left: 50%;
-        top: 50%;
+    &__hand-phone {
+        height: 55.4vh;
+        right: 20%;
+        bottom: 3.1%;
+        z-index: 100;
+    }
+
+    &__batterfly {
+        height: 13.3vh;
+        right: 9.2415551307%;
+        top: 49.9%;
+        bottom: 0;
+        z-index: 100;
+    }
+
+    &__coffe {
+        height: 31vh;
+        right: 8.133333%;
+        top: 45%;
+        z-index: 99;
+    }
+
+    &__tablet {
+        height: 64.7vh;
+        left: 50.2%;
+        top: 48%;
+        z-index: 4;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    &__keyboard {
+        height: 26.5vh;
+        left: 0;
+        bottom: 0;
         z-index: 1;
-        // width: 54.8717948718%;
-        max-width: 54.8717948718%;
-        background-image: url(/images/game-map.png);
-        transform: translate3d(-50%,-50%,0);
-
-        &:before {
-            // padding-bottom: 78.8551401869%;
-            padding-bottom: 67.5%;
-        }
     }
 
-    &__playing-card {
-        left: 50%;
-        top: 50%;
-        z-index: 10;
-        max-width: 394px;
-        transform: translate3d(-50%,-50%,0);
-        background-image: url(/images/playing-card-with-shadow.png);
-
-        &:before {
-            padding-bottom: 109.3908629442%;
-            // padding-bottom: 43.1%;
-        }
+    &__evenlope {
+        height: 45.1vh;
+        left: 23.3%;
+        top: 54%;
+        z-index: 0;
     }
 
-    &__pawn {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        max-width: 82px;
-        background-image: url(/images/pawn.png);
+    &__purple-contacts {
+        height: 10.6vh;
+        left: 25.9615384615%;
+        top: 18.1%;
+        z-index: 112;
+    }
 
-        &:before {
-            padding-bottom: 217.0731707317%;
-        }
+    &__orange-contacts {
+        height: 11vh;
+        left: 27.5641025641%;
+        top: 19.7%;
+        z-index: 111;
     }
     
-    &__blue-pawn {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        width: 3.7820512821%;
-        background-image: url(/images/blue-pawn.png);
-        // 59
-        &:before {
-            padding-bottom: 162.7118644068%;
-        }
+    &__pen {
+        height: 29.8vh;
+        left: 42.6282051282%;
+        top: 11.6%;
+        z-index: 1201;
     }
+    
+    // &__game-map {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 1;
+    //     // width: 54.8717948718%;
+    //     max-width: 54.8717948718%;
+    //     background-image: url(/images/game-map.png);
+    //     transform: translate3d(-50%,-50%,0);
 
-    &__dice {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        width: 21.4743589744%;
-        background-image: url(/images/dice.png);
-        // 335
-        &:before {
-            padding-bottom: 95.82089552%;
-        }
-    }
+    //     &:before {
+    //         // padding-bottom: 78.8551401869%;
+    //         padding-bottom: 67.5%;
+    //     }
+    // }
+
+    // &__playing-card {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 10;
+    //     max-width: 394px;
+    //     transform: translate3d(-50%,-50%,0);
+    //     background-image: url(/images/playing-card-with-shadow.png);
+
+    //     &:before {
+    //         padding-bottom: 109.3908629442%;
+    //         // padding-bottom: 43.1%;
+    //     }
+    // }
+
+    // &__pawn {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     max-width: 82px;
+    //     background-image: url(/images/pawn.png);
+
+    //     &:before {
+    //         padding-bottom: 217.0731707317%;
+    //     }
+    // }
+    
+    // &__blue-pawn {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     width: 3.7820512821%;
+    //     background-image: url(/images/blue-pawn.png);
+    //     // 59
+    //     &:before {
+    //         padding-bottom: 162.7118644068%;
+    //     }
+    // }
+
+    // &__dice {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     width: 21.4743589744%;
+    //     background-image: url(/images/dice.png);
+    //     // 335
+    //     &:before {
+    //         padding-bottom: 95.82089552%;
+    //     }
+    // }
         
-    &__dice-far-away {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        width: 2.6282051282%;
-        background-image: url(/images/dice-far-away.png);
-        // 41
-        &:before {
-            padding-bottom: 104.8780487805%;
-        }
-    }
+    // &__dice-far-away {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     width: 2.6282051282%;
+    //     background-image: url(/images/dice-far-away.png);
+    //     // 41
+    //     &:before {
+    //         padding-bottom: 104.8780487805%;
+    //     }
+    // }
 
-    &__dice-near {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        width: 4.4230769231%;
-        background-image: url(/images/dice-near.png);
-        // 69
-        &:before {
-            padding-bottom: 113.0434782609%;
-        }
-    }
+    // &__dice-near {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     width: 4.4230769231%;
+    //     background-image: url(/images/dice-near.png);
+    //     // 69
+    //     &:before {
+    //         padding-bottom: 113.0434782609%;
+    //     }
+    // }
 
-    &__orange-item {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        width: 14.1025641026%;
-        background-image: url(/images/orange-item.png);
-        // 220
-        &:before {
-            padding-bottom: 66.8181818182%;
-        }
-    }
+    // &__orange-item {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     width: 14.1025641026%;
+    //     background-image: url(/images/orange-item.png);
+    //     // 220
+    //     &:before {
+    //         padding-bottom: 66.8181818182%;
+    //     }
+    // }
 
-    &__purple-item {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        width: 9.358974359%;
-        background-image: url(/images/purple-item.png);
-        // 146
-        &:before {
-            padding-bottom: 71.9178082192%;
-        }
-    }
+    // &__purple-item {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     width: 9.358974359%;
+    //     background-image: url(/images/purple-item.png);
+    //     // 146
+    //     &:before {
+    //         padding-bottom: 71.9178082192%;
+    //     }
+    // }
 
-    &__yellow-chip {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        width: 6.0897435897%;
-        background-image: url(/images/yellow-chip.png);
-        // 95
-        &:before {
-            padding-bottom: 61.0526315789%;
-        }
-    }
+    // &__yellow-chip {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     width: 6.0897435897%;
+    //     background-image: url(/images/yellow-chip.png);
+    //     // 95
+    //     &:before {
+    //         padding-bottom: 61.0526315789%;
+    //     }
+    // }
     
-    &__purple-chip {
-        left: 50%;
-        top: 50%;
-        z-index: 11;
-        width: 9.4230769231%;
-        background-image: url(/images/purple-chip.png);
-        // 147
-        &:before {
-            padding-bottom: 94.5578231293%;
-        }
-    }
+    // &__purple-chip {
+    //     left: 50%;
+    //     top: 50%;
+    //     z-index: 11;
+    //     width: 9.4230769231%;
+    //     background-image: url(/images/purple-chip.png);
+    //     // 147
+    //     &:before {
+    //         padding-bottom: 94.5578231293%;
+    //     }
+    // }
+
+    // &__hat {
+    //     width: 611px;
+    //     left: 7%;
+    //     bottom: 0;
+    //     z-index: 5001;
+    //     background-image: url(/images/hat.png);
+    //     background-position: 0 0;
+
+    //     &:before {
+    //         padding-bottom: 54.2%;
+    //     }
+    // }
+
+    // &__pencil {
+    //     width: 336px;
+    //     height: 317px;
+    //     left: 27.5641025641%;
+    //     bottom: 0;
+    //     z-index: 5001;
+    //     background-image: url(/images/pencil.png);
+    //     background-position: 0 0;
+
+    //     &:before {
+    //         padding-bottom: 94.3452380952%;
+    //     }
+    // }
 }

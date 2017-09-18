@@ -7,7 +7,10 @@
 
 <div class="layout-wrapper">
         
-    <div class="layout-wrapper__lamp"></div>
+    <div class="layout-wrapper__lamp">
+
+    </div>
+
     <div class="layout-wrapper__lamp-lighter"></div>
 
     @@include('./components/_header.html', {
@@ -25,40 +28,68 @@
                 E-mail: <a href="mailto:ak@wwgamescorp.ru" class="contacts__email">ak@wwgamescorp.ru</a>
             </div>
 
-            <img src="/images/coffe.png" alt="">
-            <img src="/images/evenlope.png" alt="">
-            <img src="/images/hand-phone.png" alt="">
-            <img src="/images/keyboard.png" alt="">
-            <img src="/images/pen.png" alt="">
-            <img src="/images/tablet.png" alt="">
-            <img src="/images/batterfly.png" alt="">
-            
             <form action="/json/feedback.json" method="POST" class="feedback">
                 <div class="feedback__group">
-                    <label class="feedback__label">
-                        <input name="name" class="feedback__input" value="Иванов Иван Иванович">
-                        <span class="feedback__placeholder">Ф.И.О.</span>
+                    <label class="feedback__label j-label">
+                        <span class="feedback__placeholder j-label-placeholder">Ф.И.О.</span>
+                        <input name="name" class="feedback__input j-label-field" value="Иванов Иван Иванович">
                     </label>
 
-                    <label class="feedback__label">
-                        <input name="phone" class="feedback__input mask-phone">
-                        <span class="feedback__placeholder">Тел. <span class="feedback__placeholder__star">*</span></span>
+                    <label class="feedback__label j-label">
+                        <span class="feedback__placeholder j-label-placeholder">Тел. <span class="feedback__placeholder__star">*</span></span>
+                        <input name="phone" class="feedback__input j-label-field mask-phone">
                     </label>
 
-                    <label class="feedback__label">
-                            <input name="email" class="feedback__input">
-                        <span class="feedback__placeholder">E-mail</span>
+                    <label class="feedback__label j-label">
+                        <span class="feedback__placeholder j-label-placeholder">E-mail</span>
+                        <input name="email" class="feedback__input j-label-field">
                     </label>
                     
-                    <label class="feedback__label">
-                        <textarea name="text" class="feedback__textarea"></textarea>
-                        <span class="feedback__placeholder feedback__placeholder--flex-start">Текст</span>
+                    <label class="feedback__label j-label">
+                        <span class="feedback__placeholder j-label-placeholder feedback__placeholder--flex-start">Текст</span>
+                        <textarea name="text" class="feedback__textarea j-label-field"></textarea>
                     </label>
                 </div>
                 
                 <button class="feedback__button" type="submit">ОТПРАВИТЬ</button>
             </form>
 
+        </div>
+
+        <div class="parallax-picture parallax-picture__purple-contacts">
+            <img src="/images/purple-contacts.png" class="parallax-picture__src" alt="">
+        </div>
+
+        <div class="parallax-picture parallax-picture__orange-contacts">
+            <img src="/images/orange-contacts.png" class="parallax-picture__src" alt="">
+        </div>
+        
+        <div class="parallax-picture parallax-picture__pen">
+            <img src="/images/pen.png" class="parallax-picture__src" alt="">
+        </div>
+
+        <div class="parallax-picture parallax-picture__hand-phone">
+            <img src="/images/hand-phone.png" class="parallax-picture__src" alt="">
+        </div>
+
+        <div class="parallax-picture parallax-picture__batterfly">
+            <img src="/images/batterfly.png" class="parallax-picture__src" alt="">
+        </div>
+
+        <div class="parallax-picture parallax-picture__coffe">
+            <img src="/images/coffe.png" class="parallax-picture__src" alt="">
+        </div>
+
+        <div class="parallax-picture parallax-picture__tablet">
+            <img src="/images/tablet.png" class="parallax-picture__src" alt="">
+        </div>
+
+        <div class="parallax-picture parallax-picture__keyboard">
+            <img src="/images/keyboard.png" class="parallax-picture__src" alt="">
+        </div>
+
+        <div class="parallax-picture parallax-picture__evenlope">
+            <img src="/images/evenlope.png" class="parallax-picture__src" alt="">
         </div>
     </div>
 

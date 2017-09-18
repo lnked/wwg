@@ -1,7 +1,14 @@
 .content {
-    @extend %layout;
+    width: 100%;
+    padding-top: 30px;
+    max-width: $layout-width;
+    padding-left: $layout-margin;
+    padding-right: $layout-margin;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-    z-index: 1000;
+    z-index: 4000;
+    border: 1px solid yellow;
     
     p {
         font-size: 1.4rem;

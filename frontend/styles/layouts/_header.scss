@@ -1,12 +1,9 @@
 .layout-header {
     width: 100%;
-    height: 16%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 2000;
-    border: 1px solid lime;
+    height: 14vh;
+    position: absolute 0 0 auto;
+    z-index: 5000;
+    border: 1px solid cyan;
 
     &__wrapper {
         @extend %layout;
@@ -22,7 +19,8 @@
     &__logo {
         width: auto;
         height: 62.5%;
-        margin-right: 11%;
+        // margin-top: 20px;
+        margin-right: 11.7%;
 
         @media (max-width: 480px) {
             min-width: 0;
@@ -32,6 +30,6 @@
 
     &__lang {
         margin-left: 10px;
-        margin-bottom: -15px;
+        margin-bottom: -3px;
     }
 }
