@@ -1,12 +1,14 @@
 .steps {
     position: absolute;
-    left: 0;
-    top: 0;
-    float: left;
-    z-index: 10020;
 
-    width: 296px;
-    max-width: 20%;
+    left: 0.5%;
+    bottom: 24.2%;
+    float: left;
+    z-index: 4819;
+    width: 19.3%;
+
+    user-select: none;
+    pointer-events: none;
 
     margin-top: 45px;
     margin-top: 125px;
@@ -46,9 +48,8 @@
             }
 
             &:after {
-                margin-top: -3px;
-                left: 29.7297297297%;
-                left: 66.72973%;
+                margin-top: -13%;
+                left: 91.72973%;
                 background-image: url(/images/icon-arrow-1.png);
             }
         }
@@ -61,10 +62,10 @@
             &:before {
                 padding-bottom: 109.6153846154%;
             }
-            
+
             &:after {
-                margin-top: 10px;
-                left: 53.3783783784%;
+                margin-top: 11.8%;
+                left: 73.378378%;
                 background-image: url(/images/icon-arrow-2.png);
             }
         }

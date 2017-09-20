@@ -1,30 +1,26 @@
 {
-  "name": "skeleton",
+  "name": "wwg",
+  "description": "WORLD WIDE GAMES",
   "main": "gulpfile.js",
-  "description": "Web starter kit",
-  "homepage": "https://github.com/lnked/skeleton",
   "authors": [
     "Edik Bulikyan <ed.proff@gmail.com> (https://github.com/lnked)"
   ],
-  "private": true,
   "license": "MIT",
   "keywords": [
-    "gulp",
-    "bower"
+    "wwg"
   ],
+  "homepage": "https://github.com/lnked/wwg",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "frontend/vendors/",
     "test",
     "tests"
   ],
-  "timeout": 120000,
   "dependencies": {
     "cleave.js": "0.9.2",
-    "jquery": "3.1.1",
-    "cookie": "1.2.1",
-    "Template7": "template7#1.2.3",
-    "object-fit": "0.4.2"
+    "jquery": "1.11.3",
+    "jquery-mousewheel": "3.1.13"
   }
 }

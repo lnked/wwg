@@ -15,7 +15,7 @@
         align-items: center;
         justify-content: space-between;
     }
-    
+
     &__item {
         width: 24%;
         display: block;
@@ -30,8 +30,22 @@
         display: block;
         text-decoration: none;
         position: relative;
+
         font-family: $font-raleway;
         transition: color $a-time $a-func;
+
+        &:after {
+            width: 100%;
+            height: 3px;
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            opacity: 0;
+            z-index: -1;
+            background-color: #350142;
+            transition: opacity $a-time $a-func;
+        }
 
         &:hover {
             color: #ff8700;
@@ -40,6 +54,8 @@
         &__name {
             padding-bottom: 8px;
             display: inline-block;
+            border-bottom: 3px solid transparent;
+            transition: border-color $a-time $a-func;
         }
 
         &--current &__name {
@@ -50,16 +66,9 @@
             color: #ff8700;
 
             &:after {
-                width: 100%;
-                height: 3px;
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                z-index: -1;
-                background-color: #350142;
+                opacity: 1;
             }
         }
     }
-    
+
 }

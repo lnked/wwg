@@ -1,11 +1,11 @@
 * {
     -webkit-touch-callout: none;
     -webkit-overflow-scrolling: touch;
-    
+
     &, &:before, &:after {
         box-sizing: border-box;
     }
-    
+
     &[dir="ltr"] {
         direction: ltr;
         unicode-bidi: embed;
@@ -34,12 +34,26 @@ body {
     min-width: 320px;
     line-height: 1.42857143;
     font-kerning: none;
-    overflow: hidden;
     background-color: $c-body-background;
     background-image: url(/images/background.jpg);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: auto 73.7%;
+
+    // overflow-y: hidden;
+    // overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+
+    overflow-y: hidden;
+    overflow-x: auto;
+    overflow-x: -moz-scrollbars-none;
+    overflow-style: none;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 
     @media (max-width: 480px) {
         overflow: auto;
@@ -60,12 +74,12 @@ $min_width: 320;
 $max_width: 1560;
 
 $min_font: 6;
-$max_font: 10; 
+$max_font: 10;
 
 :root { font-size: #{$min_font}px; }
 
 @media (min-width: #{$min_width}px) and (max-width: #{$max_width}px) {
-    :root { 
+    :root {
         font-size: calc(#{$min_font}px + (#{$max_font} - #{$min_font}) * ( (100vw - #{$min_width}px) / ( #{$max_width} - #{$min_width})));
     }
 }

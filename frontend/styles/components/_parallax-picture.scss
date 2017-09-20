@@ -2,7 +2,6 @@
     user-select: none;
     position: absolute;
     pointer-events: none;
-    outline: 1px solid lime;
 
     &__src {
         width: auto;
@@ -68,175 +67,140 @@
         top: 19.7%;
         z-index: 111;
     }
-    
+
     &__pen {
         height: 29.8vh;
         left: 42.6282051282%;
         top: 11.6%;
         z-index: 1201;
     }
-    
-    // &__game-map {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 1;
-    //     // width: 54.8717948718%;
-    //     max-width: 54.8717948718%;
-    //     background-image: url(/images/game-map.png);
-    //     transform: translate3d(-50%,-50%,0);
 
-    //     &:before {
-    //         // padding-bottom: 78.8551401869%;
-    //         padding-bottom: 67.5%;
-    //     }
-    // }
+    &__map-compos {
+        height: 43.8vh;
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+        transform: translateX(-50%) translateY(-50%);
+    }
 
-    // &__playing-card {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 10;
-    //     max-width: 394px;
-    //     transform: translate3d(-50%,-50%,0);
-    //     background-image: url(/images/playing-card-with-shadow.png);
+    &__world-map {
+        height: 61.2vh;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        transform: translateX(-50%) translateY(-50%);
+    }
 
-    //     &:before {
-    //         padding-bottom: 109.3908629442%;
-    //         // padding-bottom: 43.1%;
-    //     }
-    // }
+    &__loop {
+        height: 38.7vh;
+        left: 50%;
+        bottom: 10vh;
+        z-index: 100;
+        transform: translateX(-50%);
+    }
 
-    // &__pawn {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     max-width: 82px;
-    //     background-image: url(/images/pawn.png);
+    &__pushpin-small {
+        height: 8.5vh;
+        left: 50%;
+        top: 30%;
+        z-index: 120;
+    }
 
-    //     &:before {
-    //         padding-bottom: 217.0731707317%;
-    //     }
-    // }
-    
-    // &__blue-pawn {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     width: 3.7820512821%;
-    //     background-image: url(/images/blue-pawn.png);
-    //     // 59
-    //     &:before {
-    //         padding-bottom: 162.7118644068%;
-    //     }
-    // }
+    &__pushpin-large {
+        height: 14.9vh;
+        left: 35%;
+        top: 30%;
+        z-index: 121;
+    }
 
-    // &__dice {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     width: 21.4743589744%;
-    //     background-image: url(/images/dice.png);
-    //     // 335
-    //     &:before {
-    //         padding-bottom: 95.82089552%;
-    //     }
-    // }
-        
-    // &__dice-far-away {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     width: 2.6282051282%;
-    //     background-image: url(/images/dice-far-away.png);
-    //     // 41
-    //     &:before {
-    //         padding-bottom: 104.8780487805%;
-    //     }
-    // }
+    &__game-map {
+        height: 67.5vh;
+        left: 27.3%;
+        top: 19.2%;
+        z-index: 1;
+    }
 
-    // &__dice-near {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     width: 4.4230769231%;
-    //     background-image: url(/images/dice-near.png);
-    //     // 69
-    //     &:before {
-    //         padding-bottom: 113.0434782609%;
-    //     }
-    // }
+    &__playing-card {
+        height: 43.1vh;
+        left: 23.5%;
+        top: 16.2%;
+        z-index: 10;
+    }
 
-    // &__orange-item {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     width: 14.1025641026%;
-    //     background-image: url(/images/orange-item.png);
-    //     // 220
-    //     &:before {
-    //         padding-bottom: 66.8181818182%;
-    //     }
-    // }
+    &__dice {
+        height: 32.1vh;
+        left: 24.4%;
+        bottom: 7.9%;
+        z-index: 11;
+    }
 
-    // &__purple-item {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     width: 9.358974359%;
-    //     background-image: url(/images/purple-item.png);
-    //     // 146
-    //     &:before {
-    //         padding-bottom: 71.9178082192%;
-    //     }
-    // }
+    &__dice-far-away {
+        height: 4.3vh;
+        left: 43.9%;
+        top: 54.1%;
+        z-index: 12;
+    }
 
-    // &__yellow-chip {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     width: 6.0897435897%;
-    //     background-image: url(/images/yellow-chip.png);
-    //     // 95
-    //     &:before {
-    //         padding-bottom: 61.0526315789%;
-    //     }
-    // }
-    
-    // &__purple-chip {
-    //     left: 50%;
-    //     top: 50%;
-    //     z-index: 11;
-    //     width: 9.4230769231%;
-    //     background-image: url(/images/purple-chip.png);
-    //     // 147
-    //     &:before {
-    //         padding-bottom: 94.5578231293%;
-    //     }
-    // }
+    &__dice-near {
+        height: 7.8vh;
+        left: 48.7%;
+        top: 50%;
+        z-index: 11;
+    }
 
-    // &__hat {
-    //     width: 611px;
-    //     left: 7%;
-    //     bottom: 0;
-    //     z-index: 5001;
-    //     background-image: url(/images/hat.png);
-    //     background-position: 0 0;
+    &__orange-item {
+        height: 14.7vh;
+        left: 49.2%;
+        top: 48.8%;
+        z-index: 15;
+    }
 
-    //     &:before {
-    //         padding-bottom: 54.2%;
-    //     }
-    // }
+    &__purple-chip {
+        height: 13.9vh;
+        left: 61%;
+        bottom: 13.5%;
+        z-index: 11;
+    }
 
-    // &__pencil {
-    //     width: 336px;
-    //     height: 317px;
-    //     left: 27.5641025641%;
-    //     bottom: 0;
-    //     z-index: 5001;
-    //     background-image: url(/images/pencil.png);
-    //     background-position: 0 0;
+    &__yellow-chip {
+        height: 5.8vh;
+        left: 57%;
+        bottom: 21.1%;
+        z-index: 10;
+    }
 
-    //     &:before {
-    //         padding-bottom: 94.3452380952%;
-    //     }
-    // }
+    &__blue-pawn {
+        height: 9.6vh;
+        left: 49.7%;
+        bottom: 22%;
+        z-index: 11;
+    }
+
+    &__pawn {
+        height: 17.8vh;
+        left: 46.1%;
+        top: 21.7%;
+        z-index: 11;
+    }
+
+    &__purple-item {
+        height: 10.5vh;
+        left: 22.1%;
+        top: 49.9%;
+        z-index: 11;
+    }
+
+    &__hat {
+        height: 54.2vh;
+        left: 2%;
+        bottom: 0%;
+        z-index: 12;
+    }
+
+    &__pencil {
+        height: 31.7vh;
+        left: 27.264103%;
+        top: 10.4%;
+        z-index: 100;
+    }
 }

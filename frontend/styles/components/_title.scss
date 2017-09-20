@@ -1,12 +1,35 @@
 .title {
     color: #fff;
-    // font-size: 7.1rem;
-    font-size: 6.1rem;
+    font-size: 5.6rem;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 33px;
-    letter-spacing: 0.02ex;
+    letter-spacing: 0.015ex;
+    position: relative;
+    z-index: 20;
+
     font-family: $font-raleway;
+    text-transform: uppercase;
+
+    &--large {
+        line-height: 1.03;
+
+        @media (min-height: 800px) {
+            font-size: 7.1rem;
+        }
+    }
+
+    &--index {
+        @media (min-height: 800px) {
+            margin-top: 14vh;
+        }
+    }
+
+    &--partners {
+        @media (min-height: 800px) {
+            margin-top: 9vh;
+        }
+    }
 
     @media (max-width: 480px) {
         font-size: 4.6rem;
