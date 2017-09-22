@@ -27,7 +27,7 @@
 	background-color: #fff;
 	transition: opacity $a-time;
 	opacity: 0;
-	
+
 	&.visible {
 		display: block;
 	}
@@ -76,7 +76,7 @@
 		vertical-align: middle;
 		position: relative;
 		padding: 5rem 0;
-	
+
 		&.is-scrolling {
 			position: relative;
 			left: auto;
@@ -110,7 +110,7 @@
 			font-weight: 400;
 		}
 	}
-	
+
 	&__body {
 		padding: 35px 40px;
 		background-color: #fff;
@@ -128,7 +128,7 @@
 		line-height: 30px;
 		font-weight: 400;
 		text-decoration: underline;
-		background: url(/images/close.png) 100% 50% no-repeat;
+		background: url(./images/close.png) 100% 50% no-repeat;
 		background-size: 23px 23px;
 	}
 }
