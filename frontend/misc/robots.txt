@@ -7,4 +7,4 @@ User-Agent: Yandex
 Disallow: /fonts/
 Disallow: /images/
 Disallow: /*?utm_source
-Host: gkeurope.ru
+Host: wwgamescorp.ru
