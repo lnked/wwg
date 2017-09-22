@@ -23,17 +23,25 @@
         @media (min-height: 800px) {
             margin-top: 14vh;
         }
+
+        @media (max-width: 480px) {
+            margin-top: 50px;
+        }
     }
 
     &--partners {
         @media (min-height: 800px) {
             margin-top: 9vh;
         }
+
+        @media (max-width: 480px) {
+            margin-top: 0;
+        }
     }
 
     @media (max-width: 480px) {
-        font-size: 4.6rem;
-        line-height: 1.2;
+        font-size: 5.5rem;
+        line-height: 1.4;
         margin-bottom: 20px;
     }
 }

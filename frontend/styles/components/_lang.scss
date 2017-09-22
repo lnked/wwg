@@ -19,10 +19,14 @@
             text-decoration: underline;
             transition: color $a-time $a-func;
 
+            @media (max-width: 480px) {
+                font-size: 1.8rem;
+            }
+
             &:hover {
                 color: #fff;
             }
-            
+
             &--selected {
                 cursor: default;
                 text-decoration: none;

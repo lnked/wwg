@@ -11,10 +11,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        @media (max-width: 480px) {
-            display: block;
-        }
     }
 
     &__logo {
@@ -32,5 +28,10 @@
     &__lang {
         margin-left: 10px;
         margin-bottom: -3px;
+
+        @media (max-width: 480px) {
+            margin-left: 0;
+            margin-bottom: 0;
+        }
     }
 }

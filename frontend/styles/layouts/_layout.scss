@@ -18,6 +18,13 @@
         pointer-events: none;
         background: url(/images/lamp.png) no-repeat 100% 0;
         background-size: auto 100%;
+
+        @media (max-width: 480px) {
+            width: 220px;
+            height: 170px;
+            right: -20px;
+            top: -20px;
+        }
     }
 
     &__lamp-lighter {
@@ -30,6 +37,13 @@
         pointer-events: none;
         background: url(/images/lamp-lighter.png) no-repeat 100% 100%;
         background-size: auto 100%;
+
+        @media (max-width: 480px) {
+            width: 300px;
+            height: 300px;
+            right: -10px;
+            top: -10px;
+        }
     }
 
     &__section {
@@ -38,6 +52,16 @@
         float: left;
         padding-top: 14vh;
         position: relative;
+
+        @media (max-width: 960px) {
+            float: none;
+            padding-top: 7vh;
+        }
+
+        @media (max-width: 480px) {
+            float: none;
+            padding-top: 7vh;
+        }
     }
 
     &__pusher {
@@ -45,6 +69,14 @@
 
         &.wrapper-scroll {
             width: 400vw;
+
+            @media (max-width: 960px) {
+                width: 100%;
+            }
+
+            @media (max-width: 480px) {
+                width: 100%;
+            }
         }
     }
 }

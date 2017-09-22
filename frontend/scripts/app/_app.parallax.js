@@ -3,21 +3,91 @@ let app = app || {};
 ((body => {
     "use strict";
 
+    var loop = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        function(callback){ setTimeout(callback, 1000 / 60); };
+
     app.parallax = {
+        items: [],
         params: {},
 
         calculate () {
-            this.params.width = $(window).width();
+            const _this = this;
+
+            _this.params.window = $(document).width();
+            _this.params.width = $(window).width();
+
+            if ($('.parallax').length) {
+                $('.parallax').each(function() {
+
+                    $(this).css({
+                        'width': `${$(this).width()}px`
+                    });
+
+                    _this.items.push({
+                        element: $(this),
+                        width: $(this).width(),
+                        offset: $(this).offset().left,
+                        position: $(this).position().left,
+                        speed: $(this).data('parallax-speed')
+                    });
+                });
+            }
+        },
+
+        animate (posX) {
+            const _this = this;
+            const width = this.params.width;
+            const window = this.params.window;
+            const modulo = posX % width;
+
+            _this.items.forEach((item, index) => {
+                const left = item.position;
+                const size = left + item.width;
+
+                if (posX >= (item.offset - size) && size >= modulo && size < width && modulo >= 0) {
+                    const offset = ((modulo / 2) * item.speed);
+
+                    TweenMax.to(item.element, .7, { css: { "transform" : `translate3d(${offset}px, 0px, 0px)` }});
+                }
+            });
         },
 
         scroller () {
-            $('html, body').mousewheel(function(event, delta) {
-                this.scrollLeft -= (delta * 2);
-                event.preventDefault();
+            const _this = this;
+
+            $('html, body').on('mousewheel', function(e, d) {
+                this.scrollLeft -= (d * 2);
+                e.preventDefault();
+
+            });
+
+            let timer;
+            let timestamp = new Date().getTime();
+
+            $(window).on('scroll', function(e, d) {
+                const current = new Date().getTime();
+
+                if ((current - timestamp) >= 150) {
+                    clearTimeout(timer);
+
+                    _this.animate($(window).scrollLeft());
+
+                    timer = setTimeout(() => {
+                        _this.animate($(window).scrollLeft());
+                    }, 300);
+
+                    timestamp = current;
+                }
             });
         },
 
         getCurrent (width, scroll) {
+            width = width - (width / 5);
+
             return (4 - Math.ceil(((width * 4) - scroll) / width));
         },
 
@@ -29,7 +99,7 @@ let app = app || {};
         setCurrent (index, width) {
             $('html, body').animate({
                 scrollLeft: (index * width) + 'px'
-            }, 'fast');
+            }, 'slow');
 
             this.changeCurrent(index);
         },
@@ -62,6 +132,16 @@ let app = app || {};
                 }, 200);
             });
 
+            $('body').on('click', '.j-scrollto', function(e) {
+                e.preventDefault();
+
+                const href = $(this).attr('href');
+
+                $('html, body').animate({
+                    scrollTop: ($(`${href}`).offset().top) + 'px'
+                }, 'fast');
+            });
+
             $('body').on('click', '.j-navigation-link', function(e) {
                 e.preventDefault();
 
@@ -71,49 +151,9 @@ let app = app || {};
             });
         },
 
-        parallax () {
-            // var rellax = new Rellax('.rellax', {
-            //     speed: -2,
-            //     center: false,
-            //     round: true,
-            //     callback: function(position) {
-            //         console.log(position);
-            //     }
-            // });
-            /*
-            (function(){
-
-                var $win = $(window);
-                var $doc = $(document);
-                var $body = $("body");
-
-                var bgHeight = 1200;       //height of the background image;
-
-                var docHeight, winHeight, maxScroll;
-
-                function onResize(){
-                    docHeight = $doc.height();
-                    winHeight = $win.height();
-                    maxScroll = docHeight - winHeight;
-                    moveParallax();
-                }
-
-                function moveParallax(){
-
-                    var bgYPos = -(bgHeight-winHeight)* ($win.scrollTop() / maxScroll);
-
-                    TweenLite.to($body, 0.1, {backgroundPosition: "50% " + bgYPos + "px"});
-                }
-
-                $win.on("scroll", moveParallax).on("resize", onResize).resize();
-            });
-            */
-        },
-
         init() {
-            this.scroller();
-            this.parallax();
             this.navigation();
+            this.scroller();
         }
 
     };

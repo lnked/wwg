@@ -1,7 +1,13 @@
 .parallax-picture {
+    cursor: move;
     user-select: none;
     position: absolute;
     pointer-events: none;
+    touch-action: pan-y;
+
+    @media (max-width: 480px) {
+        display: none;
+    }
 
     &__src {
         width: auto;
@@ -37,7 +43,7 @@
         left: 50.2%;
         top: 48%;
         z-index: 4;
-        transform: translateX(-50%) translateY(-50%);
+        // transform: translateX(-50%) translateY(-50%);
     }
 
     &__keyboard {
@@ -77,39 +83,36 @@
 
     &__map-compos {
         height: 43.8vh;
-        left: 50%;
-        top: 50%;
+        left: 29.1%;
+        top: 25.8%;
         z-index: 2;
-        transform: translateX(-50%) translateY(-50%);
     }
 
     &__world-map {
         height: 61.2vh;
-        left: 50%;
-        top: 50%;
+        left: 36.1%;
+        top: 17.2%;
         z-index: 1;
-        transform: translateX(-50%) translateY(-50%);
     }
 
     &__loop {
         height: 38.7vh;
-        left: 50%;
-        bottom: 10vh;
+        left: 41%;
+        bottom: 9.9vh;
         z-index: 100;
-        transform: translateX(-50%);
     }
 
     &__pushpin-small {
         height: 8.5vh;
-        left: 50%;
-        top: 30%;
+        left: 50.7%;
+        top: 37.8%;
         z-index: 120;
     }
 
     &__pushpin-large {
         height: 14.9vh;
-        left: 35%;
-        top: 30%;
+        left: 40.6%;
+        top: 23%;
         z-index: 121;
     }
 

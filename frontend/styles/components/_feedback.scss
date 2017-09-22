@@ -2,6 +2,12 @@
     width: 100%;
     max-width: 27%;
 
+    @media (max-width: 480px) {
+        max-width: 100%;
+        padding-right: 10px;
+        margin-bottom: 50px;
+    }
+
     &__group {
         margin-bottom: 20px;
     }
@@ -32,7 +38,11 @@
         align-items: center;
         pointer-events: none;
         transition: opacity .3s ease-in-out;
-        
+
+        @media (max-width: 480px) {
+            font-size: 2.4rem;
+        }
+
         &--visible {
             opacity: 1;
         }
@@ -62,6 +72,10 @@
         border: 0;
         outline: none;
         border-bottom: 2px solid rgba(#fff, 0.3);
+
+        @media (max-width: 480px) {
+            font-size: 2.4rem;
+        }
     }
 
     &__textarea {
@@ -82,6 +96,11 @@
         background-color: #ff8700;
         border-radius: 15px;
         transition: background-color $a-time ease, color $a-time ease;
+
+        @media (max-width: 480px) {
+            font-size: 2.2rem;
+            border-radius: 10px;
+        }
 
         &:hover {
             background-color: #ffa800;

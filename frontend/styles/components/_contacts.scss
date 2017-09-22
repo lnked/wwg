@@ -5,12 +5,21 @@
     line-height: 1.6;
     margin-bottom: 25px;
 
+    @media (max-width: 480px) {
+        font-size: 2.4rem;
+        font-weight: 400;
+    }
+
     &__phone {
         color: #fff;
         font-size: 2.4rem;
         font-weight: 700;
         text-decoration: none;
         transition: color $a-time $a-func;
+
+        @media (max-width: 480px) {
+            font-size: 2.5rem;
+        }
 
         &:hover {
             color: #ff8700;
@@ -22,6 +31,10 @@
         font-size: 1.6rem;
         text-decoration: none;
         transition: color $a-time $a-func;
+
+        @media (max-width: 480px) {
+            font-size: 2.5rem;
+        }
 
         &:hover {
             color: #fff;
