@@ -7,12 +7,13 @@
     position: relative;
 
     padding: 63px 49px 20px 84px;
-    background: url(./images/paper-upper.png) no-repeat 50% 50%;
+    background: url(../images/paper-upper.png) no-repeat 50% 50%;
     background-size: auto 100%;
 
     @media (min-height: 700px) {
         margin-top: 0;
         max-height: 52vh;
+        max-width: 65%;
     }
 
     @media (max-width: 480px) {
@@ -74,7 +75,7 @@
         height: 134.1176470588%;
         z-index: -1;
         margin-left: 1.2%;
-        background-image: url(./images/paper-backface-1.png);
+        background-image: url(../images/paper-backface-1.png);
     }
 
     &:after {
@@ -83,6 +84,6 @@
         width: 133.7209302326%;
         height: 174.3529411765%;
         z-index: -2;
-        background-image: url(./images/paper-backface-2.png);
+        background-image: url(../images/paper-backface-2.png);
     }
 }

@@ -22,14 +22,15 @@ let app = app || {};
 
             if ($('.parallax').length) {
                 $('.parallax').each(function() {
+                    const itemWidth = $(this).width();
 
                     $(this).css({
-                        'width': `${$(this).width()}px`
+                        'width': `${itemWidth}px`
                     });
 
                     _this.items.push({
                         element: $(this),
-                        width: $(this).width(),
+                        width: itemWidth,
                         offset: $(this).offset().left,
                         position: $(this).position().left,
                         speed: $(this).data('parallax-speed')
@@ -105,9 +106,11 @@ let app = app || {};
         },
 
         navigation () {
-            this.calculate();
-
             const _this = this;
+
+            setTimeout(() => {
+                _this.calculate();
+            }, 1000);
 
             const width = this.params.width;
             const scroll = $(window).scrollLeft();

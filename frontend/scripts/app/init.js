@@ -1,5 +1,3 @@
-((d => {
-    d.addEventListener('DOMContentLoaded', () => {
-        app.init();
-    });
-}))(document);
+$(document).on('ready', () => {
+    app.init();
+});
