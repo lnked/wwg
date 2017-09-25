@@ -3,56 +3,58 @@ let app = app || {};
 ((body => {
     "use strict";
 
-    var loop = window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        function(callback){ setTimeout(callback, 1000 / 60); };
-
     app.parallax = {
         items: [],
         params: {},
 
-        calculate () {
+        calculate (timeout, callback) {
             const _this = this;
 
-            _this.params.window = $(document).width();
             _this.params.width = $(window).width();
+            _this.params.window = $(document).width();
 
-            if ($('.parallax').length) {
-                $('.parallax').each(function() {
-                    const itemWidth = $(this).width();
+            setTimeout(() => {
+                if ($('.parallax').length) {
+                    const count = $('.parallax').length - 1;
 
-                    $(this).css({
-                        'width': `${itemWidth}px`
+                    $('.parallax').each(function(index) {
+                        const itemWidth = $(this).width();
+
+                        $(this).css({ 'width': `${itemWidth}px` }).addClass('is-loaded');
+
+                        _this.items.push({
+                            element: $(this),
+                            width: itemWidth,
+                            offset: $(this).offset().left,
+                            position: $(this).position().left,
+                            speed: $(this).data('parallax-speed')
+                        });
+
+                        if (count === index) {
+                            callback();
+                        }
                     });
-
-                    _this.items.push({
-                        element: $(this),
-                        width: itemWidth,
-                        offset: $(this).offset().left,
-                        position: $(this).position().left,
-                        speed: $(this).data('parallax-speed')
-                    });
-                });
-            }
+                }
+            }, timeout);
         },
 
         animate (posX) {
             const _this = this;
             const width = this.params.width;
             const window = this.params.window;
-            const modulo = posX % width;
+
+            const viewport = posX + width;
+            const division = posX % width;
+            const prepared = division / 2;
+
+            const tl = new TimelineMax({});
 
             _this.items.forEach((item, index) => {
-                const left = item.position;
-                const size = left + item.width;
+                const offset = item.offset;
+                const endPosition = offset + item.width;
 
-                if (posX >= (item.offset - size) && size >= modulo && size < width && modulo >= 0) {
-                    const offset = ((modulo / 2) * item.speed);
-
-                    TweenMax.to(item.element, .7, { css: { "transform" : `translate3d(${offset}px, 0px, 0px)` }});
+                if (viewport >= offset && endPosition >= posX) {
+                    tl.to(item.element, 0.7, { x: Math.ceil(prepared * item.speed) }, 0);
                 }
             });
         },
@@ -60,10 +62,10 @@ let app = app || {};
         scroller () {
             const _this = this;
 
-            $('html, body').on('mousewheel', function(e, d) {
-                this.scrollLeft -= (d * 2);
+            $(window).on('mousewheel', (e, d) => {
                 e.preventDefault();
-
+                const x = $(window).scrollLeft();
+                $(window).scrollLeft(x - (d * 10));
             });
 
             let timer;
@@ -71,15 +73,16 @@ let app = app || {};
 
             $(window).on('scroll', function(e, d) {
                 const current = new Date().getTime();
+                const scrollPosX = $(window).scrollLeft();
 
-                if ((current - timestamp) >= 150) {
+                if ((current - timestamp) >= 50) {
                     clearTimeout(timer);
 
-                    _this.animate($(window).scrollLeft());
+                    _this.animate(scrollPosX);
 
                     timer = setTimeout(() => {
-                        _this.animate($(window).scrollLeft());
-                    }, 300);
+                        _this.animate(scrollPosX);
+                    }, 20);
 
                     timestamp = current;
                 }
@@ -107,10 +110,6 @@ let app = app || {};
 
         navigation () {
             const _this = this;
-
-            setTimeout(() => {
-                _this.calculate();
-            }, 1000);
 
             const width = this.params.width;
             const scroll = $(window).scrollLeft();
@@ -155,8 +154,12 @@ let app = app || {};
         },
 
         init() {
-            this.navigation();
-            this.scroller();
+            const _this = this;
+
+            _this.calculate(1000, () => {
+                _this.navigation();
+                _this.scroller();
+            });
         }
 
     };

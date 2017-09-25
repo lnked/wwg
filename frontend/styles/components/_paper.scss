@@ -13,7 +13,7 @@
     @media (min-height: 700px) {
         margin-top: 0;
         max-height: 52vh;
-        max-width: 65%;
+        // max-width: 65%;
     }
 
     @media (max-width: 480px) {
@@ -79,8 +79,6 @@
     }
 
     &:after {
-        // width: 805px;
-        // height: 741px;
         width: 133.7209302326%;
         height: 174.3529411765%;
         z-index: -2;

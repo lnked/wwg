@@ -1,9 +1,15 @@
 .parallax-picture {
     cursor: move;
+    opacity: 0;
     user-select: none;
     position: absolute;
     pointer-events: none;
     touch-action: pan-y;
+    transition: opacity .3s ease-in-out;
+
+    &.is-loaded {
+        opacity: 1;
+    }
 
     @media (max-width: 480px) {
         display: none;
@@ -12,115 +18,44 @@
     &__src {
         width: auto;
         height: 100%;
-        max-width: 100%;
         display: inline-block;
     }
 
-    &__hand-phone {
-        height: 55.4vh;
-        right: 20%;
-        bottom: 3.1%;
-        z-index: 100;
-    }
-
-    &__batterfly {
-        height: 13.3vh;
-        right: 9.2415551307%;
-        top: 49.9%;
-        bottom: 0;
-        z-index: 100;
-    }
-
-    &__coffe {
-        height: 31vh;
-        right: 8.133333%;
-        top: 45%;
-        z-index: 99;
-    }
-
-    &__tablet {
-        height: 64.7vh;
-        left: 50.2%;
-        top: 48%;
-        z-index: 4;
-        // transform: translateX(-50%) translateY(-50%);
-    }
-
-    &__keyboard {
-        height: 26.5vh;
-        left: 0;
-        bottom: 0;
-        z-index: 1;
-    }
-
-    &__evenlope {
-        height: 45.1vh;
-        left: 23.3%;
-        top: 54%;
-        z-index: 0;
-    }
-
+    // INDEX PAGE
     &__purple-contacts {
         height: 10.6vh;
-        left: 25.9615384615%;
         top: 18.1%;
         z-index: 112;
+
+        &--index {
+            left: 25.9615384615%;
+        }
+
+        &--about {
+            left: 125.9615384615%;
+        }
+
+        &--contacts {
+            left: 325.9615384615%;
+        }
     }
 
     &__orange-contacts {
         height: 11vh;
-        left: 27.5641025641%;
         top: 19.7%;
         z-index: 111;
-    }
 
-    &__pen {
-        height: 29.8vh;
-        left: 42.6282051282%;
-        top: 11.6%;
-        z-index: 1201;
-    }
+        &--index {
+            left: 27.5641025641%;
+        }
 
-    &__map-compos {
-        height: 43.8vh;
-        left: 29.1%;
-        top: 25.8%;
-        z-index: 2;
-    }
+        &--about {
+            left: 127.5641025641%;
+        }
 
-    &__world-map {
-        height: 61.2vh;
-        left: 36.1%;
-        top: 17.2%;
-        z-index: 1;
-    }
-
-    &__loop {
-        height: 38.7vh;
-        left: 41%;
-        bottom: 9.9vh;
-        z-index: 100;
-    }
-
-    &__pushpin-small {
-        height: 8.5vh;
-        left: 50.7%;
-        top: 37.8%;
-        z-index: 120;
-    }
-
-    &__pushpin-large {
-        height: 14.9vh;
-        left: 40.6%;
-        top: 23%;
-        z-index: 121;
-    }
-
-    &__game-map {
-        height: 67.5vh;
-        left: 27.3%;
-        top: 19.2%;
-        z-index: 1;
+        &--contacts {
+            left: 327.5641025641%;
+        }
     }
 
     &__playing-card {
@@ -193,17 +128,141 @@
         z-index: 11;
     }
 
+    &__game-map {
+        height: 67.5vh;
+        left: 27.3%;
+        top: 19.2%;
+        z-index: 1;
+    }
+
+    &__batterfly {
+        height: 13.3vh;
+        // right: 9.2415551307%;
+        top: 50.6%;
+        bottom: 0;
+        z-index: 100;
+
+        &--index {
+            left: 80.5%;
+        }
+
+        &--about {
+            left: 180.5%;
+        }
+
+        &--partners {
+            left: 280.5%;
+        }
+
+        &--contacts {
+            left: 380.5%;
+        }
+    }
+
+    // ABOUT PAGE
+    &__pushpin-small {
+        height: 8.5vh;
+        // left: 50.7%;
+        left: 150.7%;
+        top: 37.8%;
+        z-index: 120;
+    }
+
+    &__pushpin-large {
+        height: 14.9vh;
+        // left: 40.6%;
+        left: 140.6%;
+        top: 23%;
+        z-index: 121;
+    }
+
+    &__loop {
+        height: 38.7vh;
+        // left: 41%;
+        left: 141%;
+        bottom: 9.9vh;
+        z-index: 100;
+    }
+
+    &__map-compos {
+        height: 43.8vh;
+        // left: 29.1%;
+        left: 129.1%;
+        top: 25.8%;
+        z-index: 2;
+    }
+
+    &__world-map {
+        height: 61.2vh;
+        // left: 36.1%;
+        left: 136.1%;
+        top: 17.2%;
+        z-index: 1;
+    }
+
+    // PARTNERS PAGE
     &__hat {
         height: 54.2vh;
-        left: 2%;
+        // left: 2%;
+        left: 202%;
         bottom: 0%;
         z-index: 12;
     }
 
     &__pencil {
         height: 31.7vh;
-        left: 27.264103%;
+        // left: 27.264103%;
+        left: 227.264103%;
         top: 10.4%;
         z-index: 100;
+    }
+
+    // CONTACTS PAGE
+    &__pen {
+        height: 29.8vh;
+        // left: 42.6282051282%;
+        left: 342.328205%;
+        top: 11.8%;
+        z-index: 1201;
+    }
+
+    &__hand-phone {
+        height: 55.4vh;
+        // right: 20%;
+        left: 345.9%;
+        bottom: 1.2%;
+        z-index: 100;
+    }
+
+    &__coffe {
+        height: 31vh;
+        // right: 8.133333%;
+        left: 372.733333%;
+        top: 45.9%;
+        z-index: 99;
+    }
+
+    &__tablet {
+        height: 64.7vh;
+        // left: 50.2%;
+        left: 327.5%;
+        top: 15.8%;
+        z-index: 4;
+    }
+
+    &__keyboard {
+        height: 26.5vh;
+        // left: 0;
+        left: 300%;
+        bottom: -1.67%;
+        z-index: 1;
+    }
+
+    &__evenlope {
+        height: 45.1vh;
+        // left: 23.3%;
+        left: 323.3%;
+        top: 55%;
+        z-index: 0;
     }
 }
