@@ -5,13 +5,21 @@
 			<span itemprop="name"></span>
 		</a>
 
-		@@include('./_navigation.html', {
-			"current": "@@current"
-		})
+        @@if (typeof lang !== 'undefined' && lang == 'ru'){
+            @@include('./_navigation.html', {
+                "current": "@@current"
+            })
+        }
+
+        @@if (typeof lang !== 'undefined' && lang == 'en'){
+            @@include('./_navigation-en.html', {
+                "current": "@@current"
+            })
+        }
 
 		<ul class="layout-header__lang lang">
-			<li class="lang__item"><a href="" class="lang__item__link lang__item__link--selected">RU</a></li>
-			<li class="lang__item"><a href="" class="lang__item__link">EN</a></li>
+			<li class="lang__item"><a href="./index.html" class="lang__item__link@@if (typeof lang !== 'undefined' && lang == 'ru'){ lang__item__link--selected}">RU</a></li>
+			<li class="lang__item"><a href="./english.html" class="lang__item__link@@if (typeof lang !== 'undefined' && lang == 'en'){ lang__item__link--selected}">EN</a></li>
 		</ul>
 	</div>
 </header>

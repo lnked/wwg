@@ -1,6 +1,7 @@
 .feedback {
     width: 100%;
-    max-width: 27%;
+    max-width: 29.7%;
+    margin-left: 6px;
 
     @media (max-width: 480px) {
         max-width: 100%;
@@ -9,7 +10,7 @@
     }
 
     &__group {
-        margin-bottom: 20px;
+        margin-bottom: 35px;
     }
 
     &__label {

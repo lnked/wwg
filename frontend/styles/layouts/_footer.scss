@@ -1,10 +1,10 @@
 .layout-footer {
-    height: 7%;
-    position: absolute auto 0 0 0;
+    height: 6.3vh;
+    position: fixed auto 0 0 0;
     text-align: center;
     z-index: 4000;
     pointer-events: none;
-    
+
     &__wrapper {
         @extend %layout;
     }
@@ -13,7 +13,7 @@
         color: #272727;
         font-family: Roboto;
         font-weight: 500;
-        font-size: 2.4rem;
         font-size: 1.6rem;
+        letter-spacing: 0.01ex;
     }
 }

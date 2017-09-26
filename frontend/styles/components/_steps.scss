@@ -1,19 +1,16 @@
 .steps {
     position: absolute;
-
+    width: 100% !important;
+    max-width: 19.3vw;
     left: 0.5%;
     bottom: 24.2%;
     float: left;
-    z-index: 4819;
-    width: 19.3%;
+    z-index: 130000;
 
     user-select: none;
     pointer-events: none;
 
-    margin-top: 45px;
-    margin-top: 125px;
-    margin-left: 4%;
-    margin-left: 10%;
+    margin-top: 12.5vh;
 
     @media (max-width: 480px) {
         display: none;

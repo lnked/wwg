@@ -3,12 +3,21 @@ let app = app || {};
 ((body => {
     "use strict";
 
+    const scroll = window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    function(callback){ window.setTimeout(callback, 1000/60) };
+
     app.parallax = {
         items: [],
         params: {},
+        scrollEvent: null,
 
         calculate (timeout, callback) {
             const _this = this;
+            let timer;
 
             _this.params.width = $(window).width();
             _this.params.window = $(document).width();
@@ -31,11 +40,23 @@ let app = app || {};
                         });
 
                         if (count === index) {
-                            callback();
+                            if (typeof callback === 'function') {
+                                callback();
+                            }
                         }
                     });
                 }
             }, timeout);
+
+            $(window).on('resize', function(e) {
+                clearTimeout(timer);
+
+                timer = setTimeout(function(){
+                    _this.params.width = $(window).width();
+                    _this.params.window = $(document).width();
+                }, 200);
+            });
+
         },
 
         animate (posX) {
@@ -45,48 +66,83 @@ let app = app || {};
 
             const viewport = posX + width;
             const division = posX % width;
-            const prepared = division / 2;
-
-            const tl = new TimelineMax({});
+            const prepared = division / 1.5;
 
             _this.items.forEach((item, index) => {
                 const offset = item.offset;
                 const endPosition = offset + item.width;
 
                 if (viewport >= offset && endPosition >= posX) {
-                    tl.to(item.element, 0.7, { x: Math.ceil(prepared * item.speed) }, 0);
+                    TweenMax.to(item.element, .8, { x: Math.ceil(prepared * item.speed) * 1.2, ease: Sine.easeOut }, 0);
                 }
             });
         },
 
         scroller () {
             const _this = this;
+            const width = this.params.width;
+            const time = 1000;
+            const quad = width * 4;
 
-            $(window).on('mousewheel', (e, d) => {
-                e.preventDefault();
-                const x = $(window).scrollLeft();
-                $(window).scrollLeft(x - (d * 10));
+            _this.scrollEvent = new IScroll('#wrapper', {
+                elastic: false,
+                scrollX: true,
+                scrollY: false,
+                probeType: 3,
+                freeScroll: true,
+                mouseWheel: true,
+                scrollbars: false,
+                useTransform: true,
+                mouseWheelSpeed: 40,
+                eventPassthrough: false,
+                preventDefault: false
+            });
+
+            const rellax = new Rellax('.parallax', {
+                center: false,
+                round: false
             });
 
             let timer;
-            let timestamp = new Date().getTime();
 
-            $(window).on('scroll', function(e, d) {
-                const current = new Date().getTime();
-                const scrollPosX = $(window).scrollLeft();
+            _this.scrollEvent.on('scroll', function() {
+                clearTimeout(timer);
 
-                if ((current - timestamp) >= 50) {
-                    clearTimeout(timer);
+                const scrollLeft = Math.abs(this.x);
 
-                    _this.animate(scrollPosX);
+                rellax.change(scrollLeft);
 
-                    timer = setTimeout(() => {
-                        _this.animate(scrollPosX);
-                    }, 20);
+                timer = setTimeout(function() {
+                    _this.changeCurrent(_this.getCurrent(width, scrollLeft));
+                }, 20);
+            });
 
-                    timestamp = current;
+            let scrolled = true;
+
+            _this.scrollEvent.on('scrollStart', function(){
+                setTimeout(() => {
+                    scrolled = false;
+                }, 100);
+            });
+
+            _this.scrollEvent.on('scrollEnd', function(){
+                if (!IS_TOUCH_DEVICE && !scrolled) {
+
+                    scrolled = true;
+
+                    let position = Math.abs(this.x) + ((width / 3.5) * this.directionX);
+
+                    if (position < 0) {
+                        position = 0;
+                    } else if (Math.abs(position) + width >= quad) {
+                        position = quad - width;
+                    }
+
+                    _this.scrollEvent.scrollTo((position * -1), 0, time, IScroll.utils.ease.qubic);
                 }
             });
+
+            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
         },
 
         getCurrent (width, scroll) {
@@ -101,10 +157,7 @@ let app = app || {};
         },
 
         setCurrent (index, width) {
-            $('html, body').animate({
-                scrollLeft: (index * width) + 'px'
-            }, 'slow');
-
+            this.scrollEvent.scrollTo(-(index * width), 0, 500, IScroll.utils.ease.quadratic);
             this.changeCurrent(index);
         },
 
@@ -115,24 +168,6 @@ let app = app || {};
             const scroll = $(window).scrollLeft();
 
             _this.setCurrent(_this.getCurrent(width, scroll), width);
-
-            let timer;
-
-            $(window).on('scroll', function(e) {
-                clearTimeout(timer);
-
-                timer = setTimeout(function() {
-                    _this.changeCurrent(_this.getCurrent(width, $(window).scrollLeft()));
-                }, 20);
-            });
-
-            $(window).on('resize', function(e) {
-                clearTimeout(timer);
-
-                timer = setTimeout(function(){
-                    _this.calculate();
-                }, 200);
-            });
 
             $('body').on('click', '.j-scrollto', function(e) {
                 e.preventDefault();
@@ -157,8 +192,8 @@ let app = app || {};
             const _this = this;
 
             _this.calculate(1000, () => {
-                _this.navigation();
                 _this.scroller();
+                _this.navigation();
             });
         }
 

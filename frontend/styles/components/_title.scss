@@ -21,7 +21,8 @@
 
     &--index {
         @media (min-height: 800px) {
-            margin-top: 14vh;
+            margin-top: 14.1vh;
+            letter-spacing: 0.017ex;
         }
 
         @media (max-width: 480px) {
@@ -29,13 +30,29 @@
         }
     }
 
+    &--about {
+        margin-bottom: 2rem;
+
+        @media (min-height: 800px) {
+            margin-top: 3.4rem;
+            margin-bottom: 3.5rem;
+        }
+    }
+
     &--partners {
         @media (min-height: 800px) {
-            margin-top: 9vh;
+            margin-top: 9.3vh;
         }
 
         @media (max-width: 480px) {
             margin-top: 0;
+        }
+    }
+
+    &--contacts {
+        @media (min-height: 800px) {
+            margin-top: 0.3vh;
+            margin-bottom: 3.6vh;
         }
     }
 

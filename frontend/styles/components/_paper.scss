@@ -1,19 +1,24 @@
 .paper {
     width: 100%;
     max-width: 45%;
-    max-height: 46.5vh;
-    margin: -3.7% auto 0;
-
+    margin: 0 auto;
+    max-height: 52vh;
     position: relative;
+
+    // transform: translateX(5.1%);
 
     padding: 63px 49px 20px 84px;
     background: url(../images/paper-upper.png) no-repeat 50% 50%;
     background-size: auto 100%;
 
-    @media (min-height: 700px) {
-        margin-top: 0;
-        max-height: 52vh;
-        // max-width: 65%;
+
+    @media (min-height: 800px) {
+        margin-top: -4.8%;
+        max-height: 42.2vh;
+    }
+
+    @media (max-width: 1100px) {
+        max-width: 62%;
     }
 
     @media (max-width: 480px) {
@@ -29,6 +34,7 @@
         font-size: 1.6rem;
         font-weight: 700;
         line-height: 1.25;
+        letter-spacing: -0.01ex;
 
         @media (max-width: 480px) {
             color: #fff;
@@ -42,7 +48,7 @@
         margin-bottom: 30px;
 
         @media (min-height: 900px) {
-            padding: 70px 30px 0;
+            padding: 74px 40px 0 32px;
         }
 
         @media (max-width: 480px) {

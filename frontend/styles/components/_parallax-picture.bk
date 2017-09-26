@@ -1,11 +1,31 @@
+.tlax {
+	position: absolute;
+    width: 100% !important;
+    height: 100%;
+    overflow: hidden;
+    left: 0 !important;
+    top: 0 !important;
+    border: 1px solid lime;
+    z-index: 10 !important;
+    transform: translateZ(0);
+    pointer-events: none;
+
+    div {
+        position: absolute;
+        width: 400%;
+        overflow: hidden;
+        transform: translateZ(0);
+    }
+}
+
 .parallax-picture {
     cursor: move;
     opacity: 0;
-    position: absolute;
-	overflow: hidden;
     user-select: none;
-    touch-action: pan-y;
+    position: absolute;
     pointer-events: none;
+    touch-action: pan-y;
+	overflow: hidden;
     transform: translateZ(0);
     transition: opacity .3s ease-in-out;
     backface-visibility: hidden;
@@ -22,8 +42,6 @@
         width: auto;
         height: 100%;
         display: inline-block;
-        user-select: none;
-        pointer-events: none;
     }
 
     // INDEX PAGE
@@ -33,15 +51,15 @@
         z-index: 112;
 
         &--index {
-            left: 25.9615384615vw;
+            left: 25.9615384615%;
         }
 
         &--about {
-            left: 125.9615384615vw;
+            left: 125.9615384615%;
         }
 
         &--contacts {
-            left: 325.9615384615vw;
+            left: 325.9615384615%;
         }
     }
 
@@ -51,271 +69,223 @@
         z-index: 111;
 
         &--index {
-            left: 27.5641025641vw;
+            left: 27.5641025641%;
         }
 
         &--about {
-            left: 127.5641025641vw;
+            left: 127.5641025641%;
         }
 
         &--contacts {
-            left: 327.5641025641vw;
+            left: 327.5641025641%;
         }
     }
 
     &__playing-card {
         height: 43.1vh;
-        left: 23.5vw;
-        top: 16.5%;
+        left: 23.5%;
+        top: 16.2%;
         z-index: 10;
     }
 
     &__dice {
         height: 32.1vh;
-        left: 24.3vw;
+        left: 24.4%;
         bottom: 7.9%;
         z-index: 101;
     }
 
     &__dice-far-away {
         height: 4.3vh;
-        left: 43.9vw;
-        top: 54.2%;
+        left: 43.9%;
+        top: 54.1%;
         z-index: 12;
     }
 
     &__dice-near {
         height: 7.8vh;
-        left: 48.7vw;
+        left: 48.7%;
         top: 50%;
         z-index: 11;
     }
 
     &__orange-item {
         height: 14.7vh;
-        left: 49.2vw;
-        top: 48.6%;
+        left: 49.2%;
+        top: 48.8%;
         z-index: 15;
     }
 
     &__purple-chip {
         height: 13.9vh;
-        left: 60.9vw;
-        bottom: 13.2%;
+        left: 61%;
+        bottom: 13.5%;
         z-index: 11;
     }
 
     &__yellow-chip {
         height: 5.8vh;
-        left: 57.2vw;
-        bottom: 21.3%;
+        left: 57%;
+        bottom: 21.1%;
         z-index: 10;
-    }
-
-    &__dot-1 {
-        height: 3vh;
-        left: 10.7vw;
-        top: 48.8%;
-        z-index: 11;
-    }
-
-    &__dot-2 {
-        height: 1.5vh;
-        left: 14.7vw;
-        top: 60%;
-        z-index: 11;
-    }
-
-    &__dot-3 {
-        height: 1.5vh;
-        left: 22.1vw;
-        top: 22.9%;
-        z-index: 11;
-    }
-
-    &__dot-4 {
-        height: .9vh;
-        left: 18.7vw;
-        top: 21.9%;
-        z-index: 11;
-    }
-
-    &__yellow-large-spot {
-        height: 6.8vh;
-        left: 32.1vw;
-        top: 43.3%;
-        z-index: 11;
-    }
-
-    &__yellow-rotate-chip {
-        height: 5.1vh;
-        left: 56.4vw;
-        top: 38.8%;
-        z-index: 11;
-    }
-
-    &__small-pawn {
-        height: 4.3vh;
-        left: 64.1vw;
-        top: 60.6%;
-        z-index: 11;
     }
 
     &__blue-pawn {
         height: 9.6vh;
-        left: 49.4vw;
-        bottom: 21.8%;
+        left: 49.7%;
+        bottom: 22%;
         z-index: 11;
     }
 
     &__pawn {
         height: 17.8vh;
-        left: 46.3vw;
-        top: 21.9%;
-        z-index: 11;
-    }
-
-    &__rotate-pawn {
-        height: 5.7vh;
-        left: 70.6vw;
-        top: 63.7%;
+        left: 46.1%;
+        top: 21.7%;
         z-index: 11;
     }
 
     &__purple-item {
         height: 10.5vh;
-        left: 22.1vw;
+        left: 22.1%;
         top: 49.9%;
         z-index: 11;
     }
 
     &__game-map {
         height: 67.5vh;
-        left: 27.3vw;
+        left: 27.3%;
         top: 19.2%;
         z-index: 1;
     }
 
     &__batterfly {
         height: 13.3vh;
-        top: 49.9%;
+        // right: 9.2415551307%;
+        top: 50.6%;
         bottom: 0;
         z-index: 100;
 
         &--index {
-            left: 80.5vw;
+            left: 80.5%;
         }
 
         &--about {
-            left: 180.4vw;
+            left: 180.5%;
         }
 
         &--partners {
-            left: 280.5vw;
+            left: 280.5%;
         }
 
         &--contacts {
-            // left: 380.5vw;
-            left: 390.5vw;
+            left: 380.5%;
         }
     }
 
     // ABOUT PAGE
     &__pushpin-small {
         height: 8.5vh;
-        left: 150.8vw;
-        top: 37.1%;
+        // left: 50.7%;
+        left: 150.7%;
+        top: 37.8%;
         z-index: 120;
     }
 
     &__pushpin-large {
         height: 14.9vh;
-        left: 140.5vw;
-        top: 22.6%;
+        // left: 40.6%;
+        left: 140.6%;
+        top: 23%;
         z-index: 121;
     }
 
     &__loop {
         height: 38.7vh;
-        left: 141.5vw;
-        bottom: 11.1vh;
-        z-index: 1000;
+        // left: 41%;
+        left: 141%;
+        bottom: 9.9vh;
+        z-index: 100;
     }
 
     &__map-compos {
         height: 43.8vh;
-        left: 129.1vw;
-        top: 25.3%;
+        // left: 29.1%;
+        left: 129.1%;
+        top: 25.8%;
         z-index: 2;
     }
 
     &__world-map {
         height: 61.2vh;
-        left: 136.1vw;
-        top: 17%;
+        // left: 36.1%;
+        left: 136.1%;
+        top: 17.2%;
         z-index: 1;
     }
 
     // PARTNERS PAGE
     &__hat {
         height: 54.2vh;
-        left: 202vw;
+        // left: 2%;
+        left: 202%;
         bottom: 0%;
-        z-index: 120000;
+        z-index: 12;
     }
 
     &__pencil {
         height: 31.7vh;
-        // left: 227.364103vw;
-        left: 190vw;
-        top: 10.7%;
-        z-index: 1000000;
+        // left: 27.264103%;
+        left: 227.264103%;
+        top: 10.4%;
+        z-index: 100;
     }
 
     // CONTACTS PAGE
     &__pen {
         height: 29.8vh;
-        // left: 342.428205vw;
-        left: 392.428205vw;
-        top: 11.6%;
+        // left: 42.6282051282%;
+        left: 342.328205%;
+        top: 11.8%;
         z-index: 1201;
     }
 
     &__hand-phone {
         height: 55.4vh;
-        // left: 346vw;
-        left: 376vw;
-        bottom: 2.8%;
+        // right: 20%;
+        left: 345.9%;
+        bottom: 1.2%;
         z-index: 100;
     }
 
     &__coffe {
         height: 31vh;
-        // left: 372.833333vw;
-        left: 402.833333vw;
-        top: 45.1%;
+        // right: 8.133333%;
+        left: 372.733333%;
+        top: 45.9%;
         z-index: 99;
     }
 
     &__tablet {
         height: 64.7vh;
-        left: 327.6vw;
-        top: 15.5%;
+        // left: 50.2%;
+        left: 327.5%;
+        top: 15.8%;
         z-index: 4;
     }
 
     &__keyboard {
         height: 26.5vh;
-        left: 300vw;
-        bottom: 0.13%;
+        // left: 0;
+        left: 300%;
+        bottom: -1.67%;
         z-index: 1;
     }
 
     &__evenlope {
         height: 45.1vh;
-        // left: 323.4vw;
-        left: 363.4vw;
-        top: 54%;
+        // left: 23.3%;
+        left: 323.3%;
+        top: 55%;
         z-index: 0;
     }
 }
