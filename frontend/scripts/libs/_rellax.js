@@ -228,14 +228,17 @@
 
         // Transform3d on parallax element
         var animate = function(x) {
+
+            x = posX;
+
             for (var i = 0; i < self.elems.length; i++){
                 var percentage = ((x - blocks[i].left + screenX) / (blocks[i].width + screenX));
 
                 // Subtracting initialize value, so element stays in same spot as HTML
-                var position = updatePosition(percentage, blocks[i].speed * 1) - blocks[i].base;
+                var position = updatePosition(percentage, blocks[i].speed * 1.1) - blocks[i].base;
 
-                TweenMax.to(self.elems[i], 2, { x: position, ease: Sine.easeOut }, 0);
-                // TweenMax.to(self.elems[i], 1.7, { x: position, ease: Circ.easeOut }, 0);
+                // TweenMax.to(self.elems[i], 1.5, { x: position, ease: Sine.easeOut }, 0);
+                TweenMax.to(self.elems[i], 1.5, { x: position, ease: Sine.easeOut }, 0);
             }
 
             self.options.callback(position);

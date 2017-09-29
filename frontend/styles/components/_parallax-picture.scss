@@ -1,5 +1,12 @@
+// .parallax-content {
+//     position: absolute;
+// 	overflow: hidden;
+//     transform: translateZ(0);
+//     backface-visibility: hidden;
+// }
+
 .parallax-picture {
-    cursor: move;
+    // display: none;
     opacity: 0;
     position: absolute;
 	overflow: hidden;

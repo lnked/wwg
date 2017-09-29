@@ -7,7 +7,7 @@
     letter-spacing: 0.015ex;
     position: relative;
     z-index: 20;
-
+    text-shadow: 0 0 1px #000;
     font-family: $font-raleway;
     text-transform: uppercase;
 
@@ -20,6 +20,9 @@
     }
 
     &--index {
+        // left: 5.11vw;
+        // top: 31.1%;
+
         @media (min-height: 800px) {
             margin-top: 14.1vh;
             letter-spacing: 0.017ex;
@@ -31,6 +34,8 @@
     }
 
     &--about {
+        // left: 141.51vw;
+        // top: 17.1%;
         margin-bottom: 2rem;
 
         @media (min-height: 800px) {
