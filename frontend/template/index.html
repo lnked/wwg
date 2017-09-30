@@ -5,6 +5,8 @@
 
 @@include('./components/_svgstore.html')
 
+@@include('./popup/_message.html')
+
 @@include('./components/_header.html', {
     "current": "index",
     "lang": "ru"
@@ -193,15 +195,15 @@
         </div>
         <!-- // CONTACTS PAGE -->
 
-        <div class="layout-wrapper__section" id="index">
+        <div class="layout-wrapper__section layout-wrapper__section--index" id="index">
             <div class="content clearfix">
-                <div class="title title--large title--index" data-rellax-speed="-3">ЛУЧШИЕ ИГРЫ<br>СО ВСЕГО МИРА!</div>
+                <div class="title title--large title--index" data-rellax-speed="-3">ЛУЧШИЕ ИГРЫ <br>СО ВСЕГО МИРА!</div>
             </div>
         </div>
 
         <div class="layout-wrapper__section" id="about">
             <div class="content clearfix">
-                <div class="title title--large title--about" data-rellax-speed="-3">НЕМНОГО<br>О СЕБЕ</div>
+                <div class="title title--large title--about" data-rellax-speed="-3">НЕМНОГО <br>О СЕБЕ</div>
 
                 <div class="content__inner">
                     <p><strong>&laquo;Worldwide games&raquo;</strong>&nbsp;&mdash; российская компания, созданная в&nbsp;2017&nbsp;г., с&nbsp;целью популяризации культуры настольных игр в&nbsp;России, их&nbsp;издания и&nbsp;обеспечения максимальной доступности. Является подразделением одной из&nbsp;крупнейших в&nbsp;России сетей специализированных магазинов настольных игр &laquo;Знаем играем&raquo;, созданной в&nbsp;2011&nbsp;году. На&nbsp;сегодняшний день сеть насчитывает более 50&nbsp;магазинов в&nbsp;34&nbsp;городах России и&nbsp;ближнего зарубежья. </p>
@@ -255,7 +257,7 @@
                     E-mail: <a href="mailto:ak@wwgamescorp.ru" class="contacts__email">ak@wwgamescorp.ru</a>
                 </div>
 
-                <form action="/json/feedback.json" method="POST" class="feedback">
+                <form action="/api/send" method="POST" class="feedback form-ajax form-reset">
                     <div class="feedback__group">
                         <label class="feedback__label j-label">
                             <span class="feedback__placeholder j-label-placeholder">Имя <span class="feedback__placeholder__star">*</span></span>

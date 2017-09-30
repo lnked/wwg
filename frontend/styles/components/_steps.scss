@@ -16,6 +16,10 @@
         display: none;
     }
 
+    @media (max-width: 768px) {
+        display: none;
+    }
+
     &__item {
         clear: both;
         position: relative;

@@ -1,10 +1,3 @@
-// .parallax-content {
-//     position: absolute;
-// 	overflow: hidden;
-//     transform: translateZ(0);
-//     backface-visibility: hidden;
-// }
-
 .parallax-picture {
     // display: none;
     opacity: 0;
@@ -41,14 +34,26 @@
 
         &--index {
             left: 25.9615384615vw;
+
+            @media (max-width: 768px) {
+                left: 35.961538vw;
+            }
         }
 
         &--about {
             left: 125.9615384615vw;
+
+            @media (max-width: 768px) {
+                left: 115.961538vw;
+            }
         }
 
         &--contacts {
             left: 325.9615384615vw;
+
+            @media (max-width: 768px) {
+                left: 315.9615384615vw;
+            }
         }
     }
 
@@ -59,14 +64,26 @@
 
         &--index {
             left: 27.5641025641vw;
+
+            @media (max-width: 768px) {
+                left: 37.5641025641vw;
+            }
         }
 
         &--about {
             left: 127.5641025641vw;
+
+            @media (max-width: 768px) {
+                left: 117.5641025641vw;
+            }
         }
 
         &--contacts {
             left: 327.5641025641vw;
+
+            @media (max-width: 768px) {
+                left: 317.5641025641vw;
+            }
         }
     }
 
@@ -75,6 +92,14 @@
         left: 23.5vw;
         top: 16.5%;
         z-index: 10;
+
+        @media (max-width: 768px) {
+            left: 33.5vw;
+        }
+
+        @media (max-width: 1024px) {
+            left: 25vw;
+        }
     }
 
     &__dice {
@@ -82,6 +107,14 @@
         left: 24.3vw;
         bottom: 7.9%;
         z-index: 101;
+
+        @media (max-width: 768px) {
+            left: 74.3vw;
+        }
+
+        @media (max-width: 1024px) {
+            left: 30.3vw;
+        }
     }
 
     &__dice-far-away {
@@ -96,6 +129,10 @@
         left: 48.7vw;
         top: 50%;
         z-index: 11;
+
+        @media (max-width: 768px) {
+            left: 58.7vw;
+        }
     }
 
     &__orange-item {
@@ -103,6 +140,10 @@
         left: 49.2vw;
         top: 48.6%;
         z-index: 15;
+
+        @media (max-width: 768px) {
+            left: 44.2vw;
+        }
     }
 
     &__purple-chip {
@@ -110,6 +151,10 @@
         left: 60.9vw;
         bottom: 13.2%;
         z-index: 11;
+
+        @media (max-width: 768px) {
+            left: 30.9vw;
+        }
     }
 
     &__yellow-chip {
@@ -117,6 +162,10 @@
         left: 57.2vw;
         bottom: 21.3%;
         z-index: 10;
+
+        @media (max-width: 768px) {
+            left: 47.2vw;
+        }
     }
 
     &__dot-1 {
@@ -173,6 +222,10 @@
         left: 49.4vw;
         bottom: 21.8%;
         z-index: 11;
+
+        @media (max-width: 768px) {
+            left: 59.4vw;
+        }
     }
 
     &__pawn {
@@ -180,6 +233,10 @@
         left: 46.3vw;
         top: 21.9%;
         z-index: 11;
+
+        @media (max-width: 768px) {
+            left: 36.3vw;
+        }
     }
 
     &__rotate-pawn {
@@ -187,6 +244,10 @@
         left: 70.6vw;
         top: 63.7%;
         z-index: 11;
+
+        @media (max-width: 768px) {
+            left: 80.6vw;
+        }
     }
 
     &__purple-item {
@@ -194,6 +255,10 @@
         left: 22.1vw;
         top: 49.9%;
         z-index: 11;
+
+        @media (max-width: 768px) {
+            left: 32.1vw;
+        }
     }
 
     &__game-map {
@@ -201,6 +266,14 @@
         left: 27.3vw;
         top: 19.2%;
         z-index: 1;
+
+        @media (max-width: 768px) {
+            left: 17.3vw;
+        }
+
+        @media (max-width: 1024px) {
+            left: 17.3vw;
+        }
     }
 
     &__batterfly {
@@ -211,19 +284,34 @@
 
         &--index {
             left: 80.5vw;
+
+            @media (max-width: 768px) {
+                left: 100.5vw;
+            }
         }
 
         &--about {
             left: 180.4vw;
+
+            @media (max-width: 768px) {
+                left: 200.4vw;
+            }
         }
 
         &--partners {
             left: 280.5vw;
+
+            @media (max-width: 768px) {
+                left: 300.5vw;
+            }
         }
 
         &--contacts {
-            // left: 380.5vw;
             left: 390.5vw;
+
+            @media (max-width: 768px) {
+                left: 410.5vw;
+            }
         }
     }
 
@@ -233,6 +321,10 @@
         left: 150.8vw;
         top: 37.1%;
         z-index: 120;
+
+        @media (max-width: 768px) {
+            /* left: ; */
+        }
     }
 
     &__pushpin-large {
@@ -240,6 +332,10 @@
         left: 140.5vw;
         top: 22.6%;
         z-index: 121;
+
+        @media (max-width: 768px) {
+            /* left: ; */
+        }
     }
 
     &__loop {
@@ -247,6 +343,10 @@
         left: 141.5vw;
         bottom: 11.1vh;
         z-index: 1000;
+
+        @media (max-width: 768px) {
+            left: 171.5vw;
+        }
     }
 
     &__map-compos {
@@ -254,6 +354,10 @@
         left: 129.1vw;
         top: 25.3%;
         z-index: 2;
+
+        @media (max-width: 768px) {
+            left: 149.1vw;
+        }
     }
 
     &__world-map {
@@ -261,6 +365,10 @@
         left: 136.1vw;
         top: 17%;
         z-index: 1;
+
+        @media (max-width: 768px) {
+            left: 166.1vw;
+        }
     }
 
     // PARTNERS PAGE
@@ -269,39 +377,69 @@
         left: 202vw;
         bottom: 0%;
         z-index: 120000;
+    
+        @media (max-width: 1024px) {
+            height: 40vh;
+            left: 190vw;
+        }
+
+        @media (max-width: 768px) {
+            height: 30vh;
+            left: 192vw;
+        }
     }
 
     &__pencil {
         height: 31.7vh;
-        // left: 227.364103vw;
         left: 190vw;
         top: 10.7%;
         z-index: 1000000;
+
+        @media (max-width: 768px) {
+            /* left: ; */
+        }
     }
 
     // CONTACTS PAGE
     &__pen {
         height: 29.8vh;
-        // left: 342.428205vw;
         left: 392.428205vw;
         top: 11.6%;
         z-index: 1201;
+
+        @media (max-width: 768px) {
+            left: 362.428205vw;
+        }
     }
 
     &__hand-phone {
         height: 55.4vh;
-        // left: 346vw;
         left: 376vw;
         bottom: 2.8%;
         z-index: 100;
+
+        @media (max-width: 768px) {
+            left: 428vw;
+        }
+
+        @media (max-width: 1024px) {
+            left: 356vw;
+        }
     }
 
     &__coffe {
         height: 31vh;
-        // left: 372.833333vw;
         left: 402.833333vw;
         top: 45.1%;
         z-index: 99;
+
+        @media (max-width: 768px) {
+            left: 442.833333vw;
+        }
+
+        @media (max-width: 1024px) {
+            left: 382.833333vw;
+        }
     }
 
     &__tablet {
@@ -309,6 +447,10 @@
         left: 327.6vw;
         top: 15.5%;
         z-index: 4;
+
+        @media (max-width: 1024px) {
+            left: 322.6vw;
+        }
     }
 
     &__keyboard {
@@ -320,9 +462,16 @@
 
     &__evenlope {
         height: 45.1vh;
-        // left: 323.4vw;
         left: 363.4vw;
         top: 54%;
         z-index: 0;
+
+        @media (max-width: 768px) {
+            left: 414.4vw;
+        }
+
+        @media (max-width: 1024px) {
+            left: 333.4vw;
+        }
     }
 }

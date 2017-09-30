@@ -227,43 +227,30 @@
         };
 
         // Transform3d on parallax element
-        var animate = function(x) {
+        var animate = function(x, touch) {
 
-            x = posX;
+            let coefficient = 0.5;
+
+            if (!touch) {
+                x = posX;
+                coefficient = 1.1;
+            }
 
             for (var i = 0; i < self.elems.length; i++){
                 var percentage = ((x - blocks[i].left + screenX) / (blocks[i].width + screenX));
 
                 // Subtracting initialize value, so element stays in same spot as HTML
-                var position = updatePosition(percentage, blocks[i].speed * 1.1) - blocks[i].base;
+                var position = updatePosition(percentage, blocks[i].speed * coefficient) - blocks[i].base;
 
                 // TweenMax.to(self.elems[i], 1.5, { x: position, ease: Sine.easeOut }, 0);
                 TweenMax.to(self.elems[i], 1.5, { x: position, ease: Sine.easeOut }, 0);
             }
 
             self.options.callback(position);
-
-            // for (var i = 0; i < self.elems.length; i++){
-            //     var percentage = ((posX - blocks[i].left + screenX) / (blocks[i].width + screenX));
-
-            //     // Subtracting initialize value, so element stays in same spot as HTML
-            //     var position = updatePosition(percentage, blocks[i].speed) - blocks[i].base;
-
-            //     var zindex = blocks[i].zindex;
-
-            //     // Move that element
-            //     // (Set the new translation and append initial inline transforms.)
-            //     // var translate = 'translate3d(' + position + 'px, 0,' + zindex + 'px) ' + blocks[i].transform;
-            //     // self.elems[i].style[transformProp] = translate;
-
-            //     TweenMax.to(self.elems[i], 0, { x: position, ease: Power0.easeNone }, 0);
-            // }
-
-            // self.options.callback(position);
         };
 
-        self.change = function(x) {
-            animate(x);
+        self.change = function(x, touch) {
+            animate(x, touch);
         };
 
         self.destroy = function() {

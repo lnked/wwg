@@ -5,6 +5,12 @@
     z-index: 4000;
     pointer-events: none;
 
+    @media (max-width: 480px) {
+        height: auto;
+        padding: 30px 20px;
+        position: relative auto;
+    }
+
     &__wrapper {
         @extend %layout;
     }
@@ -15,5 +21,10 @@
         font-weight: 500;
         font-size: 1.6rem;
         letter-spacing: 0.01ex;
+
+        @media (max-width: 480px) {
+            color: #fff;
+            font-size: 2rem;
+        }
     }
 }

@@ -1,49 +1,53 @@
-<template id="tmpl-notification">
-    <div class="notification" id="popup_notification">
-        {{#title}}
-        <div class="notification__header">{{title}}</div>
-        {{/title}}
-        
-        {{#text}}
-        <div class="notification__content clearfix">
-            {{text}}
-        </div>
-        {{/text}}
-    </div>
-</template>
-
 <template id="tmpl-popup-message">
-    <div class="popup popup_simple popup_message" id="popup_message">
-        <b class="popup__close popup__close_simple js-popup-close"></b>
+    <div class="popup popup--message" id="popup_message">
+        <div class="popup__dialog">
+            <section class="popup__content">
+                <b class="popup__close j-popup-close">
+                    <svg class="popup__close__icon" role="img">
+                        <use xlink:href="#close" />
+                    </svg>
+                </b>
 
-        {{#if title}}
-        <header class="popup__header popup__header_simple">
-            {{title}}
-        </header>
-        {{/if}}
+                {{#if title}}
+                <header class="popup__header">
+                    <h4 class="popup__header__title">{{title}}</h4>
+                </header>
+                {{/if}}
 
-        {{#if text}}
-        <div class="popup__message clearfix">
-            {{text}}
+                {{#if text}}
+                <article class="popup__body">
+                    {{text}}
+                </article>
+                {{/if}}
+
+            </section>
         </div>
-        {{/if}}
     </div>
 </template>
 
 <template id="tmpl-popup-error">
-    <div class="popup popup_simple popup_error" id="popup_error">
-        <b class="popup__close popup__close_simple js-popup-close"></b>
+    <div class="popup popup--error" id="popup_error">
+        <div class="popup__dialog">
+            <section class="popup__content">
+                <b class="popup__close j-popup-close">
+                    <svg class="popup__close__icon" role="img">
+                        <use xlink:href="#close" />
+                    </svg>
+                </b>
 
-        {{#if title}}
-        <header class="popup__header popup__header_simple">
-            {{title}}
-        </header>
-        {{/if}}
+                {{#if title}}
+                <header class="popup__header">
+                    <h4 class="popup__header__title">{{title}}</h4>
+                </header>
+                {{/if}}
 
-        {{#if text}}
-        <div class="popup__message clearfix">
-            {{text}}
+                {{#if text}}
+                <article class="popup__body">
+                    {{text}}
+                </article>
+                {{/if}}
+
+            </section>
         </div>
-        {{/if}}
     </div>
 </template>

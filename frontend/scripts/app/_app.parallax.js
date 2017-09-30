@@ -10,6 +10,10 @@ let app = app || {};
     window.oRequestAnimationFrame ||
     function(callback){ window.setTimeout(callback, 1000/60) };
 
+    const range = [120, 180];
+
+    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
     app.parallax = {
         items: [],
         params: {},
@@ -78,73 +82,121 @@ let app = app || {};
             });
         },
 
+        move (position, distance, delta) {
+            let absolute = Math.abs(distance);
+
+            if (isFirefox) {
+                distance = distance * delta * 1.2;
+            } else {
+                distance = distance * delta;
+            }
+
+            if (distance > 0) {
+                if (distance <= range[0]) {
+                    distance = range[0];
+                }
+
+                if (distance >= range[1]) {
+                    distance = range[1];
+                }
+            }
+
+            if (distance < 0) {
+                if (distance < 0 && absolute <= 50 && (distance <= range[0] && absolute < range[1])) {
+                    distance = -range[0];
+                }
+
+                if (distance <= -range[1]) {
+                    distance = -range[1];
+                }
+            }
+
+            distance = position + distance * 2.5;
+
+            $('html, body').stop().animate({ scrollLeft: distance }, 800, 'easeOutSine');
+        },
+
         scroller () {
             const _this = this;
             const width = this.params.width;
             const quad = width * 4;
-
-            // Scrollbar.initAll({
-            //     speed: 10
-            // });
-
-            // Scrollbar.initAll({ speed: 0.75 });
 
             const rellax = new Rellax('.parallax', {
                 round: false,
                 center: false
             });
 
-            let timer;
+            if (IS_TOUCH_DEVICE) {
+                let timer;
 
-            const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-            const range = [120, 180];
+                this.scrollEvent = new IScroll('#wrapper', {
+                    elastic: true,
+                    scrollX: true,
+                    scrollY: false,
+                    probeType: 3,
+                    mouseWheel: true,
+                    scrollbars: false,
+                    useTransform: true,
+                    mouseWheelSpeed: 20,
+                    eventPassthrough: true
+                });
 
-            $(window).on('mousewheel', function(e) {
-                let distance = e.originalEvent.deltaY;
-                let absolute = Math.abs(distance);
+                this.scrollEvent.on('scroll', function() {
+                    const x = Math.abs(this.x);
 
-                if (isFirefox) {
-                    distance = distance * e.deltaFactor * 1.2;
-                } else {
-                    distance = distance * e.deltaFactor;
-                }
+                    rellax.change(x, true);
 
-                if (distance > 0) {
-                    if (distance <= range[0]) {
-                        distance = range[0];
-                    }
+                    timer = setTimeout(function() {
+                        _this.changeCurrent(_this.getCurrent(width, x));
+                    }, 20);
+                });
+            } else {
+                let timer;
 
-                    if (distance >= range[1]) {
-                        distance = range[1];
-                    }
-                }
+                $(window).on('mousewheel', function(e) {
+                    _this.move($(window).scrollLeft(), e.originalEvent.deltaY, e.deltaFactor);
+                    e.preventDefault();
+                });
 
-                if (distance < 0) {
-                    if (distance < 0 && absolute <= 50 && (distance <= range[0] && absolute < range[1])) {
-                        distance = -range[0];
-                    }
+                $(window).on('scroll', function() {
+                    const x = $(window).scrollLeft();
 
-                    if (distance <= -range[1]) {
-                        distance = -range[1];
-                    }
-                }
+                    rellax.change(x, false);
 
-                distance = $(window).scrollLeft() + distance * 2.5;
+                    timer = setTimeout(function() {
+                        _this.changeCurrent(_this.getCurrent(width, x));
+                    }, 20);
+                });
+            }
 
-                $('html, body').stop().animate({ scrollLeft: distance }, 800, 'easeOutSine');
+            // let lastX;
+            // let direction;
 
-                e.preventDefault();
-            });
+            // $(document).on('touchstart touchend touchcancel touchleave touchmove', function(e) {
+            //     // const currentX = e.originalEvent.changedTouches[0].clientX;
+            //     const currentX = e.originalEvent.changedTouches[0].pageX;
 
-            $(window).on('scroll', function() {
-                const x = $(window).scrollLeft();
+            //     // console.log(e.originalEvent);
+            //     console.log($(this).scrollLeft(), $(this).scrollLeft());
 
-                rellax.change(x);
+            //     // top = Math.min(top, this.listNode.clientHeight - this.listNodeWrapper.clientHeight);
 
-                timer = setTimeout(function() {
-                    _this.changeCurrent(_this.getCurrent(width, x));
-                }, 20);
-            });
+            //     if(currentX > lastX) {
+            //         direction = -1;
+            //     } else if(currentX < lastX) {
+            //         direction = 1;
+            //     }
+
+            //     _this.move(currentX, direction * 100, 4);
+
+            //     rellax.change(currentX, true);
+
+            //     timer = setTimeout(function() {
+            //         _this.changeCurrent(_this.getCurrent(width, currentX));
+            //     }, 20);
+
+            //     lastX = currentX;
+            // });
         },
 
         getCurrent (width, scroll) {
@@ -159,11 +211,14 @@ let app = app || {};
         },
 
         setCurrent (index, width) {
-            // this.scrollEvent.scrollTo(-(index * width), 0, 500, IScroll.utils.ease.quadratic);
 
-            $('html, body').stop().animate({
-                scrollLeft: index * width
-            }, 'medium');
+            if (IS_TOUCH_DEVICE) {
+                this.scrollEvent.scrollTo(-(index * width), 0, 500, IScroll.utils.ease.quadratic);
+            } else {
+                $('html, body').stop().animate({
+                    scrollLeft: index * width
+                }, 'medium');
+            }
 
             this.changeCurrent(index);
         },

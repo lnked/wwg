@@ -4,13 +4,11 @@
     background: url(../images/logo.png) no-repeat 0 50%;
     background-size: auto 100%;
 
-    &:before {
-        content: "";
-        display: block;
-        padding-bottom: 56.6473988439%;
+    @media (max-width: 480px) {
+        width: 160px;
     }
 
-@media (max-width: 480px) {
-        width: 160px;
+    @media (max-width: 768px) {
+        width: 80px;
     }
 }

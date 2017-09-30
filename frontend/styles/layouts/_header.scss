@@ -6,6 +6,10 @@
     top: 0;
     z-index: 5000;
 
+    @media (max-width: 768px) {
+        height: 10vh;
+    }
+
     &__wrapper {
         @extend %layout;
         display: flex;
@@ -23,6 +27,12 @@
             min-width: 0;
             margin: 0;
         }
+
+        @media (max-width: 768px) {
+            height: 8vh;
+            margin-top: 0;
+            margin-right: 5%;
+        }
     }
 
     &__lang {
@@ -32,6 +42,10 @@
         @media (max-width: 480px) {
             margin-left: 0;
             margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: -2px;
         }
     }
 }

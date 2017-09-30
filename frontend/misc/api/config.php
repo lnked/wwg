@@ -20,6 +20,7 @@ return [
     ],
 
     'from' => 'worldwidegames17@gmail.com',
+    'password' => 'worldwidegames2017',
 
     'emails' => [
         'info@newtime.biz',

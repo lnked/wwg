@@ -9,6 +9,14 @@
     position: relative;
     z-index: 100;
 
+    @media (max-width: 480px) {
+        padding-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+        padding-top: 10px;
+    }
+
     p {
         font-size: 1.4rem;
         color: #fff;
@@ -22,16 +30,25 @@
             @media (max-width: 480px) {
                 margin-bottom: 25px;
             }
+
+            @media (max-width: 768px) {
+                margin-bottom: 10px;
+            }
         }
 
         strong {
             color: #fff;
             font-size: 1.8rem;
             font-weight: 700;
+
+            @media (max-width: 480px) {
+                font-size: 2.8rem;
+                line-height: 1.8;
+            }
         }
 
         @media (max-width: 480px) {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
             line-height: 1.6;
         }
     }
@@ -41,19 +58,27 @@
         max-width: 540px;
 
         p {
-            text-shadow: 0 0 1px #000;
+            text-shadow: 0 0 1px rgba(#000, 0.5);
         }
 
-        @media (max-height: 800px) {
+        @media (max-height: 800px) and (min-width: 481px) {
             max-width: 50%;
         }
 
-        @media (max-height: 700px) {
+        @media (max-height: 700px) and (min-width: 481px) {
             max-width: 70%;
         }
 
         @media (max-width: 480px) {
             max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            max-width: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            max-width: 60%;
         }
     }
 }

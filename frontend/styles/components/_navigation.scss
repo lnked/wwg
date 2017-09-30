@@ -2,6 +2,10 @@
     width: 100%;
     margin-bottom: -18px;
 
+    @media (max-width: 768px) {
+        margin-bottom: -10px;
+    }
+
     @media (max-width: 480px) {
         display: none;
     }
@@ -49,6 +53,10 @@
             z-index: -1;
             background-color: #350142;
             transition: opacity $a-time $a-func;
+
+            @media (max-width: 768px) {
+                height: 2px;
+            }
         }
 
         &:hover {
@@ -60,10 +68,18 @@
             display: inline-block;
             border-bottom: 3px solid transparent;
             transition: border-color $a-time $a-func;
+
+            @media (max-width: 768px) {
+                padding-bottom: 4px;
+                border-bottom-width: 2px;
+            }
         }
 
         &--current &__name {
             border-bottom: 3px solid #ff8700;
+            @media (max-width: 768px) {
+                border-bottom-width: 2px;
+            }
         }
 
         &--current {

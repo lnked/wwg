@@ -58,9 +58,6 @@ if( !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_
 
 					$mail->setSubject($config['subject']);
 
-                    // worldwidegames17@gmail.com
-                    // password: worldwidegames2017
-
 		            $mail->setFrom($config['from']);
 		            $mail->setHtmlBody(iconv('utf-8', 'windows-1251', $body));
 
