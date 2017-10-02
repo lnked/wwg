@@ -41,6 +41,7 @@ body {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: auto 73.7%;
+    background-attachment: fixed;
 
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
@@ -60,7 +61,8 @@ body {
     }
 
     @media (min-width: 1025px) {
-        background-attachment: fixed;
+        width: 100%;
+        height: 100%;
     }
 }
 

@@ -20,6 +20,10 @@
         display: none;
     }
 
+    @media (max-height: 600px) {
+        bottom: 15.2%;
+    }
+
     &__item {
         clear: both;
         position: relative;

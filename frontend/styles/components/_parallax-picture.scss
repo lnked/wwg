@@ -100,6 +100,10 @@
         @media (max-width: 1024px) {
             left: 25vw;
         }
+
+        @media (max-height: 800px) {
+            height: 39vh;
+        }
     }
 
     &__dice {
@@ -114,6 +118,14 @@
 
         @media (max-width: 1024px) {
             left: 30.3vw;
+        }
+
+        @media (max-height: 800px) {
+            height: 28vh;
+        }
+
+        @media (max-height: 600px) {
+            left: 33vw;
         }
     }
 
@@ -144,6 +156,10 @@
         @media (max-width: 768px) {
             left: 44.2vw;
         }
+
+        @media (max-height: 800px) {
+            height: 13vh;
+        }
     }
 
     &__purple-chip {
@@ -154,6 +170,10 @@
 
         @media (max-width: 768px) {
             left: 30.9vw;
+        }
+
+        @media (max-height: 800px) {
+            height: 12.5vh;
         }
     }
 
@@ -274,6 +294,11 @@
         @media (max-width: 1024px) {
             left: 17.3vw;
         }
+
+        @media (max-height: 600px) {
+            height: 62vh;
+            top: 22%;
+        }
     }
 
     &__batterfly {
@@ -369,6 +394,10 @@
         @media (max-width: 768px) {
             left: 166.1vw;
         }
+
+        @media (max-height: 800px) {
+            height: 58vh;
+        }
     }
 
     // PARTNERS PAGE
@@ -383,6 +412,10 @@
             left: 190vw;
         }
 
+        @media (max-height: 768px) {
+            height: 40vh;
+        }
+
         @media (max-width: 768px) {
             height: 30vh;
             left: 192vw;
@@ -395,8 +428,8 @@
         top: 10.7%;
         z-index: 1000000;
 
-        @media (max-width: 768px) {
-            /* left: ; */
+        @media (max-height: 600px) {
+            left: 230vw;
         }
     }
 
@@ -409,6 +442,10 @@
 
         @media (max-width: 768px) {
             left: 362.428205vw;
+        }
+
+        @media (max-height: 600px) {
+            left: 380vw;
         }
     }
 
@@ -425,6 +462,10 @@
         @media (max-width: 1024px) {
             left: 356vw;
         }
+
+        @media (max-height: 600px) {
+            left: 358vw;
+        }
     }
 
     &__coffe {
@@ -440,6 +481,10 @@
         @media (max-width: 1024px) {
             left: 382.833333vw;
         }
+
+        @media (max-height: 600px) {
+            left: 394vw;
+        }
     }
 
     &__tablet {
@@ -450,6 +495,11 @@
 
         @media (max-width: 1024px) {
             left: 322.6vw;
+        }
+
+        @media (max-height: 600px) {
+            top: 20.5%;
+            left: 333vw;
         }
     }
 
@@ -472,6 +522,10 @@
 
         @media (max-width: 1024px) {
             left: 333.4vw;
+        }
+
+        @media (max-height: 600px) {
+            left: 343.4vw;
         }
     }
 }

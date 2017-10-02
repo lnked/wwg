@@ -223,6 +223,26 @@ let app = app || {};
             this.changeCurrent(index);
         },
 
+        scrollTo (width, href) {
+            if (width <= 480) {
+                const offset = $(href).offset().top + 50;
+
+                $('html, body').stop().animate({
+                    scrollTop: offset
+                }, 'medium');
+            } else {
+                const offset = $(href).position().left;
+
+                if (IS_TOUCH_DEVICE) {
+                    this.scrollEvent.scrollTo(-offset, 0, 800, IScroll.utils.ease.quadratic);
+                } else {
+                    $('html, body').stop().animate({
+                        scrollLeft: offset
+                    }, 'medium');
+                }
+            }
+        },
+
         navigation () {
             const _this = this;
 
@@ -233,12 +253,7 @@ let app = app || {};
 
             $('body').on('click', '.j-scrollto', function(e) {
                 e.preventDefault();
-
-                const href = $(this).attr('href');
-
-                $('html, body').animate({
-                    scrollTop: ($(`${href}`).offset().top) + 'px'
-                }, 'fast');
+                _this.scrollTo(width, $(this).attr('href'));
             });
 
             $('body').on('click', '.j-navigation-link', function(e) {

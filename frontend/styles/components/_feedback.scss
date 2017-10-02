@@ -1,3 +1,32 @@
+input,
+textarea {
+    -webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+select {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+}
+
+label {
+    cursor: pointer;
+}
+
+input, button {
+    -webkit-appearance: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
 .feedback {
     width: 100%;
     max-width: 29.7%;
@@ -35,7 +64,6 @@
         position: absolute;
         left: 0;
         top: 0;
-        // padding: 13px;
         padding: 13px 0;
         bottom: 0;
         opacity: 0;
@@ -83,6 +111,31 @@
         border: 0;
         outline: none;
         border-bottom: 2px solid rgba(#fff, 0.3);
+
+        &.error {
+            background: rgba(255, 0, 0, 0.1);
+            border-color: rgb(255, 0, 0);
+            border-color: rgba(255, 0, 0, 0.5);
+        }
+        
+        &:disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        &:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px white inset;
+        }
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-calendar-picker-indicator {
+            display: none;
+            appearance: none;
+        }
 
         @media (max-width: 480px) {
             color: #000;

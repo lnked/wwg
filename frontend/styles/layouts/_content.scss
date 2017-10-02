@@ -9,12 +9,12 @@
     position: relative;
     z-index: 100;
 
-    @media (max-width: 480px) {
-        padding-top: 50px;
-    }
-
     @media (max-width: 768px) {
         padding-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+        padding-top: 80px;
     }
 
     p {
@@ -27,12 +27,16 @@
         &:not(:last-child) {
             margin-bottom: 19px;
 
+            @media (max-width: 768px) {
+                margin-bottom: 10px;
+            }
+
             @media (max-width: 480px) {
                 margin-bottom: 25px;
             }
 
-            @media (max-width: 768px) {
-                margin-bottom: 10px;
+            @media (max-height: 600px) {
+                margin-bottom: 15px;
             }
         }
 
@@ -69,16 +73,20 @@
             max-width: 70%;
         }
 
-        @media (max-width: 480px) {
-            max-width: 100%;
+        @media (max-width: 1024px) {
+            max-width: 60%;
         }
 
         @media (max-width: 768px) {
             max-width: 100%;
         }
 
-        @media (max-width: 1024px) {
-            max-width: 60%;
+        @media (max-width: 480px) {
+            max-width: 100%;
+        }
+
+        @media (max-height: 600px) {
+            max-width: 100%;
         }
     }
 }

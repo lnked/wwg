@@ -32,8 +32,6 @@ let app = app || {};
 
         init () {
             this.bind();
-
-            $.popup.message('response.title', 'response.message');
         }
     };
 

@@ -24,11 +24,10 @@
         background: url(../images/lamp.png) no-repeat 100% 0;
         background-size: auto 100%;
 
-        @media (max-width: 480px) {
-            width: 220px;
-            height: 170px;
-            right: -20px;
-            top: -20px;
+        @media (max-width: 1024px) {
+            width: 300px;
+            height: 250px;
+            left: 67vw;
         }
 
         @media (max-width: 768px) {
@@ -39,10 +38,18 @@
             top: -20px;
         }
 
-        @media (max-width: 1024px) {
-            width: 300px;
-            height: 250px;
-            left: 67vw;
+        @media (max-width: 480px) {
+            width: 220px;
+            height: 140px;
+            right: -20px;
+            top: -20px;
+        }
+
+        @media (max-height: 600px) {
+            width: 220px;
+            height: 180px;
+            left: calc(100vw - 220px);
+            top: -5px;
         }
     }
 
@@ -57,11 +64,10 @@
         background: url(../images/lamp-lighter.png) no-repeat 100% 100%;
         background-size: auto 100%;
 
-        @media (max-width: 480px) {
-            width: 300px;
-            height: 300px;
-            right: -10px;
-            top: -10px;
+        @media (max-width: 1024px) {
+            width: 530px;
+            height: 480px;
+            left: 50vw;
         }
 
         @media (max-width: 768px) {
@@ -73,10 +79,19 @@
             opacity: .8;
         }
 
-        @media (max-width: 1024px) {
-            width: 530px;
-            height: 480px;
-            left: 50vw;
+        @media (max-width: 480px) {
+            width: 300px;
+            height: 270px;
+            right: -10px;
+            top: -10px;
+        }
+
+        @media (max-height: 600px) {
+            width: 350px;
+            height: 350px;
+            left: calc(100vw - 350px);
+            top: 0px;
+            opacity: .8;
         }
     }
 
@@ -87,13 +102,22 @@
         padding-top: 14vh;
         position: relative;
 
+        @media (max-width: 768px) {
+            padding-top: 10vh;
+            z-index: 10000;
+        }
+
         @media (max-width: 480px) {
             float: none;
             padding-top: 7vh;
-        }
 
-        @media (max-width: 768px) {
-            padding-top: 10vh;
+            &:not(:last-child) {
+                margin-bottom: -40px;
+            }
+
+            &:last-child {
+                margin-bottom: 20px;
+            }
         }
 
         &--index {
