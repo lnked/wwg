@@ -29,15 +29,23 @@
         }
 
         @media (max-height: 600px) {
-            font-size: 4.5rem;
+            font-size: 4rem;
             line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+            font-size: 6rem;
         }
     }
 
     &--index {
-        // left: 5.11vw;
-        // top: 31.1%;
-
         @media (min-height: 800px) {
             margin-top: 14.1vh;
             letter-spacing: 0.017ex;
@@ -49,8 +57,6 @@
     }
 
     &--about {
-        // left: 141.51vw;
-        // top: 17.1%;
         margin-bottom: 2rem;
 
         @media (min-height: 800px) {
@@ -68,8 +74,10 @@
     }
 
     &--partners {
+        margin-top: 3vh;
+
         @media (min-height: 800px) {
-            margin-top: 9.3vh;
+            margin-top: 3vh;
         }
 
         @media (max-width: 480px) {
@@ -85,7 +93,7 @@
     }
 
     @media (max-width: 480px) {
-        font-size: 5.5rem;
+        font-size: 4.5rem;
         line-height: 1.4;
         margin-bottom: 20px;
     }

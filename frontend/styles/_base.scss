@@ -31,13 +31,16 @@ html {
 }
 
 body {
+    width: 100%;
+    height: 100%;
+
     color: $c-text;
     min-width: 320px;
     line-height: 1.42857143;
     font-kerning: none;
     position: relative;
     background-color: $c-body-background;
-    background-image: url(../images/background.jpg);
+    background-image: url(/images/background.jpg);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: auto 73.7%;
@@ -60,10 +63,25 @@ body {
         overflow-x: hidden;
     }
 
+    @media (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     @media (min-width: 1025px) {
         width: 100%;
         height: 100%;
     }
+
+    /*
+    @media (orientation: portrait) {
+        background: cyan;
+    }
+
+    @media (orientation: landscape) {
+        background: lime;
+    }
+    */
 }
 
 body, input, textarea, select, button {

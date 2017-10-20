@@ -24,6 +24,7 @@ let app = app || {};
             let timer;
 
             _this.params.width = $(window).width();
+            _this.params.height = $(window).height();
             _this.params.window = $(document).width();
 
             setTimeout(() => {
@@ -121,52 +122,54 @@ let app = app || {};
             const width = this.params.width;
             const quad = width * 4;
 
-            const rellax = new Rellax('.parallax', {
-                round: false,
-                center: false
-            });
-
-            if (IS_TOUCH_DEVICE) {
-                let timer;
-
-                this.scrollEvent = new IScroll('#wrapper', {
-                    elastic: true,
-                    scrollX: true,
-                    scrollY: false,
-                    probeType: 3,
-                    mouseWheel: true,
-                    scrollbars: false,
-                    useTransform: true,
-                    mouseWheelSpeed: 20,
-                    eventPassthrough: true
+            if (width > 480) {
+                const rellax = new Rellax('.parallax', {
+                    round: false,
+                    center: false
                 });
 
-                this.scrollEvent.on('scroll', function() {
-                    const x = Math.abs(this.x);
+                if (IS_TOUCH_DEVICE) {
+                    let timer;
 
-                    rellax.change(x, true);
+                    this.scrollEvent = new IScroll('#wrapper', {
+                        elastic: true,
+                        scrollX: true,
+                        scrollY: false,
+                        probeType: 3,
+                        mouseWheel: true,
+                        scrollbars: false,
+                        useTransform: true,
+                        mouseWheelSpeed: 20,
+                        eventPassthrough: true
+                    });
 
-                    timer = setTimeout(function() {
-                        _this.changeCurrent(_this.getCurrent(width, x));
-                    }, 20);
-                });
-            } else {
-                let timer;
+                    this.scrollEvent.on('scroll', function() {
+                        const x = Math.abs(this.x);
 
-                $(window).on('mousewheel', function(e) {
-                    _this.move($(window).scrollLeft(), e.originalEvent.deltaY, e.deltaFactor);
-                    e.preventDefault();
-                });
+                        rellax.change(x, true);
 
-                $(window).on('scroll', function() {
-                    const x = $(window).scrollLeft();
+                        timer = setTimeout(function() {
+                            _this.changeCurrent(_this.getCurrent(width, x));
+                        }, 20);
+                    });
+                } else {
+                    let timer;
 
-                    rellax.change(x, false);
+                    $(window).on('mousewheel', function(e) {
+                        _this.move($(window).scrollLeft(), e.originalEvent.deltaY, e.deltaFactor);
+                        e.preventDefault();
+                    });
 
-                    timer = setTimeout(function() {
-                        _this.changeCurrent(_this.getCurrent(width, x));
-                    }, 20);
-                });
+                    $(window).on('scroll', function() {
+                        const x = $(window).scrollLeft();
+
+                        rellax.change(x, false);
+
+                        timer = setTimeout(function() {
+                            _this.changeCurrent(_this.getCurrent(width, x));
+                        }, 20);
+                    });
+                }
             }
 
             // let lastX;
@@ -211,20 +214,21 @@ let app = app || {};
         },
 
         setCurrent (index, width) {
-
-            if (IS_TOUCH_DEVICE) {
-                this.scrollEvent.scrollTo(-(index * width), 0, 500, IScroll.utils.ease.quadratic);
-            } else {
-                $('html, body').stop().animate({
-                    scrollLeft: index * width
-                }, 'medium');
+            if (width > 480) {
+                if (IS_TOUCH_DEVICE) {
+                    this.scrollEvent.scrollTo(-(index * width), 0, 500, IScroll.utils.ease.quadratic);
+                } else {
+                    $('html, body').stop().animate({
+                        scrollLeft: index * width
+                    }, 'medium');
+                }
             }
 
             this.changeCurrent(index);
         },
 
         scrollTo (width, href) {
-            if (width <= 480) {
+            if (width <= 480 || (width === 768 && this.params.height === 1024)) {
                 const offset = $(href).offset().top + 50;
 
                 $('html, body').stop().animate({

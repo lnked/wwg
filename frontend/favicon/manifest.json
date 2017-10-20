@@ -1,5 +1,6 @@
 {
     "name": "WWG",
+    "short_name": "WWG",
     "icons": [
         {
             "src": "/favicon/android-chrome-192x192.png",

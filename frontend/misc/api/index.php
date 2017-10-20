@@ -1,14 +1,15 @@
 <?php
 
-error_reporting( E_ALL );
+error_reporting(E_ALL);
 
-if( !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) == 'xmlhttprequest' )
+if(!empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) == 'xmlhttprequest')
 {
 	if( !session_id() ) {
 		session_start();
 	}
 
 	defined('DS') || define('DS', DIRECTORY_SEPARATOR);
+	defined('PATH_ROOT') || define('PATH_ROOT', dirname((__DIR__)));
 
 	$parse_url = parse_url($_SERVER["REQUEST_URI"]);
 
@@ -18,12 +19,12 @@ if( !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_
 	$config = require __DIR__ . DS . 'config.php';
 
 	require_once  __DIR__ . DS . 'helpers.php';
-	require_once  __DIR__ . DS . 'mmail.class.php';
+	require_once  __DIR__ . DS . 'class.phpmailer.php';
+	require_once  __DIR__ . DS . 'class.smtp.php';
+	require_once  __DIR__ . DS . 'class.phpmaileroauth.php';
+	require_once  __DIR__ . DS . 'class.phpmaileroauthgoogle.php';
 
 	$model = 'message';
-
-	$empty = $config['message']['empty'];
-    $empty_correct = $config['message']['empty_correct'];
 
 	if ($controller == 'send')
 	{
@@ -35,11 +36,16 @@ if( !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_
 
 	        $validate = validate($model, $config['fields'], $_POST);
 
+	        $lang = $_POST['lang'];
+
+			$empty = $config['message'][$lang]['empty'];
+		    $empty_correct = $config['message'][$lang]['empty_correct'];
+
 	        if (!empty($_SESSION[$model]['error']))
 	        {
 	        	$response = [
 	    			'status'	=> false,
-	    			'title'		=> $config['message']['title'],
+	    			'title'		=> $config['message'][$lang]['title'],
 		    		'errors'	=> $_SESSION[$model]['error']
 	    		];
 	        }
@@ -49,43 +55,40 @@ if( !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_
 
 				if ($body)
 				{
-					$mail = new mMail();
+					$result = send(
+						$config['subject'],
+						$body,
+						$config['send_email'],
+						$config['send_password'],
+						$config['send_host'],
+						$config['emails']
+					);
 
-		            foreach ($config['emails'] as $email)
-		            {
-		            	$mail->addTo($email);
-		            }
+					if ($result)
+					{
+					    unset($_SESSION[$model]);
 
-					$mail->setSubject($config['subject']);
-
-		            $mail->setFrom($config['from']);
-		            $mail->setHtmlBody(iconv('utf-8', 'windows-1251', $body));
-
-		            if ($mail->send())
-		            {
-		                unset($_SESSION[$model]);
-
-		                $response = [
-			    			'status'	=> true,
-				    		'title'		=> $config['message']['title'],
-				    		'message'   => $config['message']['success']
-			    		];
-		            }
+					    $response = [
+							'status'	=> true,
+							'title'		=> $config['message'][$lang]['title'],
+							'message'   => $config['message'][$lang]['success']
+						];
+					}
 					else
-		            {
-		                $response = [
-			    			'status'	=> false,
-			    			'title'		=> $config['message']['title'],
-				    		'message'   => $config['message']['failure']
-			    		];
+					{
+					    $response = [
+							'status'	=> false,
+							'title'		=> $config['message'][$lang]['title'],
+							'message'   => $config['message'][$lang]['failure']
+						];
 					}
 				}
 				else
 	            {
 	                $response = [
 		    			'status'	=> false,
-		    			'title'		=> $config['message']['title'],
-			    		'message'   => $config['message']['failure']
+		    			'title'		=> $config['message'][$lang]['title'],
+			    		'message'   => $config['message'][$lang]['failure']
 		    		];
 				}
 	        }

@@ -20,8 +20,13 @@
         display: none;
     }
 
-    @media (max-height: 600px) {
+    @media (max-height: 800px) {
         bottom: 15.2%;
+    }
+
+    @media (min-width: 800px) and (max-width: 900px) and (min-height: 580px) and (max-height: 660px) {
+        margin-left: -12vw;
+        max-width: 18vw;
     }
 
     &__item {
@@ -59,7 +64,7 @@
             &:after {
                 margin-top: -13%;
                 left: 91.72973%;
-                background-image: url(../images/icon-arrow-1.png);
+                background-image: url(/images/icon-arrow-1.png);
             }
         }
 
@@ -75,7 +80,7 @@
             &:after {
                 margin-top: 11.8%;
                 left: 73.378378%;
-                background-image: url(../images/icon-arrow-2.png);
+                background-image: url(/images/icon-arrow-2.png);
             }
         }
 

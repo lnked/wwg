@@ -6,16 +6,21 @@
     position: relative;
 
     padding: 63px 49px 20px 84px;
-    background: url(../images/paper-upper.png) no-repeat 50% 50%;
+    background: url(/images/paper-upper.png) no-repeat 50% 50%;
     background-size: auto 100%;
 
-    @media (max-height: 600px) {
+    @media (min-width: 481px) and (max-height: 750px) {
+        padding: 79px 35px 10px 78px;
+    }
+
+    @media (max-height: 800px) {
         max-height: 62vh;
         margin-top: -5%;
     }
 
     @media (min-height: 800px) {
-        margin-top: -4.8%;
+        /* margin-top: -4.8%; */
+        margin-top: 0;
         max-height: 42.2vh;
     }
 
@@ -23,21 +28,26 @@
         max-height: 48.2vh;
     }
 
-    @media (max-width: 1100px) {
+    @media (min-width: 768px) and (max-width: 1100px) {
         max-width: 62%;
     }
 
-    @media (max-width: 768px) {
+    @media (min-width: 481px) and (max-width: 768px) {
         max-width: 78%;
-        max-height: 65vh;
-        padding: 45px 50px 20px 85px;
+        max-height: 75vh;
+        padding: 55px 50px 20px 85px;
+    }
+
+    @media (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+        max-width: 70%;
+        height: 280px;
     }
 
     @media (max-width: 480px) {
         max-width: 100%;
-        max-height: 10000px;
+        max-height: 10000px !important;
         background: none;
-        margin: 0 auto;
+        margin: 0 auto !important;
         padding: 0;
     }
 
@@ -48,7 +58,7 @@
         line-height: 1.25;
         letter-spacing: -0.01ex;
 
-        @media (max-width: 768px) {
+        @media (min-width: 481px) and (max-width: 768px) {
             font-size: 1.4rem;
         }
 
@@ -63,11 +73,7 @@
         padding: 30px 30px 0;
         margin-bottom: 30px;
 
-        @media (min-height: 900px) {
-            padding: 74px 40px 0 32px;
-        }
-
-        @media (max-width: 768px) {
+        @media (min-width: 481px) and (max-width: 768px) {
             padding: 20px 30px 0;
             margin-bottom: 10px;
         }
@@ -75,12 +81,20 @@
         @media (max-width: 480px) {
             padding: 0;
         }
+
+        @media (min-height: 900px) {
+            padding: 74px 40px 0 32px;
+        }
+
+        @media (min-width: 768px) and (min-height: 1022px) and (orientation: portrait) {
+            padding: 25px 30px !important;
+        }
     }
 
     &__button {
         text-align: center;
 
-        @media (max-width: 768px) {
+        @media (min-width: 481px) and (max-width: 768px) {
             .button {
                 height: 30px;
                 padding: 0 20px;
@@ -111,13 +125,13 @@
         height: 134.1176470588%;
         z-index: -1;
         margin-left: 1.2%;
-        background-image: url(../images/paper-backface-1.png);
+        background-image: url(/images/paper-backface-1.png);
     }
 
     &:after {
         width: 133.7209302326%;
         height: 174.3529411765%;
         z-index: -2;
-        background-image: url(../images/paper-backface-2.png);
+        background-image: url(/images/paper-backface-2.png);
     }
 }

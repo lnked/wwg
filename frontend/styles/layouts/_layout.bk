@@ -21,7 +21,7 @@
         height: 53.3vh;
         z-index: 4900;
         pointer-events: none;
-        background: url(../images/lamp.png) no-repeat 100% 0;
+        background: url(/images/lamp.png) no-repeat 100% 0;
         background-size: auto 100%;
 
         @media (max-width: 480px) {
@@ -40,7 +40,7 @@
         height: 89.9vh;
         z-index: 4800;
         pointer-events: none;
-        background: url(../images/lamp-lighter.png) no-repeat 100% 100%;
+        background: url(/images/lamp-lighter.png) no-repeat 100% 100%;
         background-size: auto 100%;
 
         @media (max-width: 480px) {

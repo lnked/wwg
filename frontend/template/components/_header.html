@@ -1,9 +1,17 @@
 <header class="layout-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 	<div class="layout-header__wrapper">
 
-		<a href="/index.html" class="layout-header__logo logo" rel="home" itemprop="url" accesskey="1" data-instant>
-			<span itemprop="name"></span>
+        @@if (typeof lang !== 'undefined' && lang == 'ru'){
+		<a href="/ru" class="layout-header__logo logo" rel="home" title="Worldwide games" itemprop="url" accesskey="1" data-instant>
+			<span itemprop="name">Worldwide games</span>
 		</a>
+        }
+
+        @@if (typeof lang !== 'undefined' && lang == 'en'){
+        <a href="/" class="layout-header__logo logo" rel="home" title="Worldwide games" itemprop="url" accesskey="1" data-instant>
+            <span itemprop="name">Worldwide games</span>
+        </a>
+        }
 
         @@if (typeof lang !== 'undefined' && lang == 'ru'){
             @@include('./_navigation.html', {
@@ -18,8 +26,8 @@
         }
 
 		<ul class="layout-header__lang lang">
-			<li class="lang__item"><a href="./index.html" class="lang__item__link@@if (typeof lang !== 'undefined' && lang == 'ru'){ lang__item__link--selected}">RU</a></li>
-			<li class="lang__item"><a href="./english.html" class="lang__item__link@@if (typeof lang !== 'undefined' && lang == 'en'){ lang__item__link--selected}">EN</a></li>
+            <li class="lang__item"><a href="/" class="lang__item__link@@if (typeof lang !== 'undefined' && lang == 'en'){ lang__item__link--selected}">EN</a></li>
+			<li class="lang__item"><a href="/ru" class="lang__item__link@@if (typeof lang !== 'undefined' && lang == 'ru'){ lang__item__link--selected}">RU</a></li>
 		</ul>
 	</div>
 </header>

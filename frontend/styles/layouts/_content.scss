@@ -9,20 +9,28 @@
     position: relative;
     z-index: 100;
 
-    @media (max-width: 768px) {
+    @media (min-width: 481px) and (max-width: 768px) {
         padding-top: 10px;
     }
 
     @media (max-width: 480px) {
-        padding-top: 80px;
+        padding-top: 20px;
+    }
+
+    @media (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+        padding-top: 20px;
     }
 
     p {
-        font-size: 1.4rem;
         color: #fff;
-        font-family: $font-raleway;
+        font-size: 1.4rem;
         line-height: 1.44;
+        font-family: $font-raleway;
         letter-spacing: 0.0ex;
+
+        @media (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+            font-size: 1.8rem;
+        }
 
         &:not(:last-child) {
             margin-bottom: 19px;

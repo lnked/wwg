@@ -42,7 +42,7 @@ function message($fields = [], $data = [])
             $html .= '<td align="center">';
             $html .= '<table width="600" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">';
             $html .= '<tr>';
-            $html .= '<td colspan="3"><img src="/images/logo.png" width="215" height="59" /></td>';
+            $html .= '<td colspan="3"><img src="/images/logo.png" width="215" /></td>';
             $html .= '</tr>';
             $html .= '<tr>';
             $html .= '<td colspan="3" height="15"></td>';
@@ -73,4 +73,94 @@ function message($fields = [], $data = [])
     }
 
     return $html;
+}
+
+function send(
+    $subject,   # Тема сообщения
+    $message,   # Текст сообщения
+    $user,      # Электронная почта отправителя
+    $password,  # Пароль отправителя
+    $host,      # Хост отправителя
+    $to         # Адреса для отправления
+)
+{
+    $mail = new PHPMailer;
+
+    try {
+        if (!empty($to))
+        {
+            $mail->isSMTP();
+
+            $mail->Host             = $host;            // sets the SMTP server
+            $mail->SMTPKeepAlive    = true;
+
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+
+            $mail->SMTPDebug    = 0;                    // enables SMTP debug information (for testing)
+            $mail->Debugoutput  = 'html';
+
+            $mail->Username   = $user;                  // SMTP account username
+            $mail->Password   = $password;              // SMTP account password
+
+            $mail->Port             = 465;
+            $mail->SMTPSecure       = 'ssl';
+
+            $mail->SMTPAuth         = true;             // enable SMTP authentication
+
+            $mail->setFrom($user, $user);
+
+            if (file_exists(PATH_ROOT.'/images/logo.png'))
+            {
+                $mail->addAttachment(PATH_ROOT.'/images/logo.png', '/images/logo.png');
+            }
+
+            if (is_array($to))
+            {
+                foreach ($to as $key => $email)
+                {
+                    if (filter_var($email, FILTER_VALIDATE_EMAIL))
+                    {
+                        $mail->AddAddress(trim($email));
+                    }
+                }
+            }
+            elseif (filter_var($to, FILTER_VALIDATE_EMAIL))
+            {
+                $mail->AddAddress(trim($to));
+            }
+
+            $mail->CharSet = 'utf-8';
+            $mail->Subject = $subject;
+
+            $mail->isHTML(true);
+            $mail->msgHTML($message);
+
+            if ($mail->send())
+            {
+                return true;
+            }
+            else {
+                echo "Mailer Error: " . $mail->ErrorInfo;
+            }
+
+            $mail->ClearAddresses();
+            $mail->ClearAttachments();
+        }
+
+        return false;
+    }
+    catch (phpmailerException $e)
+    {
+        echo $e->errorMessage();
+    }
+    catch (Exception $e)
+    {
+        echo $e->getMessage();
+    }
 }

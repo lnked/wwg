@@ -82,6 +82,7 @@ var app = app || {};
             if (response.hasOwnProperty('message'))
             {
                 $.popup.message(response.title, response.message);
+                $('.j-label-field').addClass('feedback__placeholder--visible');
             }
 
         },
