@@ -30,10 +30,15 @@
         background-size: auto 100%;
 
         @media (min-width: 481px) and (max-height: 800px) {
+            width: 300px;
+            height: 250px;
+            left: 77vw;
+            /*
             width: 220px;
             height: 180px;
             left: calc(100vw - 220px);
             top: -5px;
+            */
         }
 
         @media (max-width: 480px) {
@@ -90,11 +95,20 @@
         background-size: auto 100%;
         
         @media (min-width: 481px) and (max-height: 800px) {
+            width: 300px;
+            height: 300px;
+            right: -10px;
+            left: auto;
+            top: -10px;
+            opacity: .8;
+
+            /*
             width: 350px;
             height: 350px;
             left: calc(100vw - 350px);
             top: 0px;
             opacity: .8;
+            */
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
